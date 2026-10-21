@@ -1,0 +1,303 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+@theme {
+  --color-kiln: #140E0C;
+  --color-kiln-soft: #221510;
+  --color-kiln-elevated: #2D1C15;
+  --color-cream: #FBF5EC;
+  --color-cream-deep: #F3E4CD;
+  --color-cream-soft: #FCF9F3;
+  --color-ember: #E11D48;
+  --color-saffron: #F59E0B;
+  --color-gold: #FBBF24;
+  --color-brass: #D97706;
+  --color-ruby: #E11D48;
+  --color-emerald: #10B981;
+  --color-jade: #059669;
+  --color-turquoise: #06B6D4;
+  --color-amethyst: #8B5CF6;
+  --color-coral: #F97316;
+  --color-moss: #064E3B;
+  --color-moss-deep: #022C22;
+  --color-river: #0E7490;
+  --color-rouge: #BE123C;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'DM Mono', monospace;
+}
+
+:root {
+  /* Vibrant Jewel Tone Color Palette */
+  --kiln: #130d0b;
+  --kiln-soft: #1e1310;
+  --kiln-elevated: #281813;
+  --cream: #FBF5EC;
+  --cream-deep: #F3E4CD;
+  --cream-soft: #FCF9F3;
+
+  /* Jewel Tones */
+  --ember: #E11D48;
+  --ember-glow: rgba(225, 29, 72, 0.4);
+  --saffron: #F59E0B;
+  --saffron-glow: rgba(245, 158, 11, 0.35);
+  --gold: #FBBF24;
+  --gold-glow: rgba(251, 191, 36, 0.35);
+  --brass: #D97706;
+  --brass-hairline: rgba(217, 119, 6, 0.4);
+  --ruby: #E11D48;
+  --ruby-glow: rgba(225, 29, 72, 0.35);
+  --emerald: #10B981;
+  --emerald-glow: rgba(16, 185, 129, 0.35);
+  --turquoise: #06B6D4;
+  --turquoise-glow: rgba(6, 182, 212, 0.35);
+  --amethyst: #8B5CF6;
+  --amethyst-glow: rgba(139, 92, 246, 0.35);
+  --coral: #F97316;
+  --coral-glow: rgba(249, 115, 22, 0.35);
+  --moss: #064E3B;
+  --moss-deep: #022C22;
+  --river: #0E7490;
+  --rouge: #BE123C;
+
+  /* Typography */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'DM Mono', monospace;
+
+  /* Transitions */
+  --ease-settle: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-clay: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* Base Reset & Smoothness */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--kiln);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--kiln);
+  color: var(--cream);
+  position: relative;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+
+::selection {
+  background-color: var(--ember);
+  color: var(--cream-soft);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--kiln);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--brass-hairline);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* Arch Doorway & Plate Masks */
+.mask-arch {
+  clip-path: inset(0 round 140px 140px 12px 12px);
+}
+
+.mask-arch-lg {
+  clip-path: inset(0 round 220px 220px 18px 18px);
+}
+
+.mask-plate {
+  border-radius: 50%;
+}
+
+/* Brass Dotted Leaders */
+.brass-dotted-leader {
+  flex-grow: 1;
+  border-bottom: 2px dotted var(--brass-hairline);
+  margin: 0 12px;
+  transform: translateY(-4px);
+}
+
+/* Film Grain Overlay */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.045;
+}
+
+/* Interactive Pill Button with Liquid Fill */
+.btn-ember {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #991B1B 0%, #C2410C 48%, #D97706 100%);
+  color: #FCF9F3;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s var(--ease-settle), box-shadow 0.3s var(--ease-settle);
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(153, 27, 27, 0.25);
+}
+
+.btn-ember:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(217, 119, 6, 0.35);
+}
+
+.btn-ember:active {
+  transform: translateY(0);
+}
+
+.btn-brass-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: transparent;
+  color: var(--cream);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  border: 1px solid var(--brass);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-settle);
+  text-decoration: none;
+}
+
+.btn-brass-outline:hover {
+  background-color: var(--brass);
+  color: var(--kiln);
+  box-shadow: 0 8px 20px var(--gold-glow);
+  transform: translateY(-2px);
+}
+
+/* Watermark typography */
+.watermark-text {
+  position: absolute;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  user-select: none;
+  pointer-events: none;
+  opacity: 0.04;
+  line-height: 1;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+/* Testimonial Carousel Transitions */
+@keyframes progressFill {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px) scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px) scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 3D Floating Food Slider Transitions */
+@keyframes foodSlideRight {
+  0% {
+    opacity: 0;
+    transform: translateZ(-80px) translateX(60px) rotateY(-25deg) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(60px) translateX(0) rotateY(0deg) scale(1);
+  }
+}
+
+@keyframes foodSlideLeft {
+  0% {
+    opacity: 0;
+    transform: translateZ(-80px) translateX(-60px) rotateY(25deg) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(60px) translateX(0) rotateY(0deg) scale(1);
+  }
+}
+
+.animate-foodSlideRight {
+  animation: foodSlideRight 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-foodSlideLeft {
+  animation: foodSlideLeft 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Reduced Motion Fallback */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
