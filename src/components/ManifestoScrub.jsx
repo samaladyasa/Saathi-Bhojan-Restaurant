@@ -20,14 +20,14 @@ export default function ManifestoScrub() {
       gsap.fromTo(
         words,
         {
-          opacity: 0.18,
+          opacity: 0.22,
           y: 6,
-          color: 'rgba(245, 233, 212, 0.25)',
+          color: 'rgba(38, 51, 43, 0.25)',
         },
         {
           opacity: 1,
           y: 0,
-          color: 'rgba(245, 233, 212, 1)',
+          color: 'rgba(38, 51, 43, 1)',
           stagger: 0.05,
           ease: 'power2.out',
           scrollTrigger: {
@@ -52,22 +52,22 @@ export default function ManifestoScrub() {
     <div ref={containerRef} className="max-w-4xl mx-auto text-center py-6">
       <p
         ref={textRef}
-        className="font-display text-2xl sm:text-3xl md:text-4xl text-[#F5E9D4] leading-relaxed select-none"
+        className="font-display text-2xl sm:text-3xl md:text-4xl text-[var(--text)] leading-relaxed select-none"
       >
         {words.map((word, idx) => (
           <React.Fragment key={idx}>
             <span className="scrub-word inline-block opacity-20 transition-all will-change-transform mr-[0.28em]">
               {word === '"Saathi"' ? (
-                <span className="italic font-normal text-[#EAD6B4]">{word}</span>
+                <span className="italic font-normal text-[var(--primary)]">{word}</span>
               ) : word === '"Bhojan"' ? (
-                <span className="font-normal text-[#E8A317]">{word}</span>
+                <span className="font-semibold text-[var(--primary-dark)]">{word}</span>
               ) : (
                 word
               )}
             </span>
             {/* Inline floating image pill at word 7 */}
             {idx === 7 && (
-              <span className="inline-flex items-center align-middle mx-2 w-14 h-7 rounded-full overflow-hidden border border-[#E8A317]/60 shadow-lg transform -translate-y-1">
+              <span className="inline-flex items-center align-middle mx-2 w-14 h-7 rounded-full overflow-hidden border border-[var(--primary)]/60 shadow-lg shadow-[var(--footer)]/10 transform -translate-y-1">
                 <img
                   src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=300&auto=format&fit=crop"
                   alt="Hearth"
@@ -77,7 +77,7 @@ export default function ManifestoScrub() {
             )}
             {/* Inline floating image pill at word 22 */}
             {idx === 22 && (
-              <span className="inline-flex items-center align-middle mx-2 w-14 h-7 rounded-full overflow-hidden border border-[#C4532B]/80 shadow-lg transform -translate-y-1">
+              <span className="inline-flex items-center align-middle mx-2 w-14 h-7 rounded-full overflow-hidden border border-[var(--border)] shadow-lg shadow-[var(--footer)]/10 transform -translate-y-1">
                 <img
                   src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=300&auto=format&fit=crop"
                   alt="Pizza"

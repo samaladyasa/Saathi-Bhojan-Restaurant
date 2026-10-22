@@ -2,26 +2,16 @@
 @import "lenis/dist/lenis.css";
 
 @theme {
-  --color-kiln: #140E0C;
-  --color-kiln-soft: #221510;
-  --color-kiln-elevated: #2D1C15;
-  --color-cream: #FBF5EC;
-  --color-cream-deep: #F3E4CD;
-  --color-cream-soft: #FCF9F3;
-  --color-ember: #E11D48;
-  --color-saffron: #F59E0B;
-  --color-gold: #FBBF24;
-  --color-brass: #D97706;
-  --color-ruby: #E11D48;
-  --color-emerald: #10B981;
-  --color-jade: #059669;
-  --color-turquoise: #06B6D4;
-  --color-amethyst: #8B5CF6;
-  --color-coral: #F97316;
-  --color-moss: #064E3B;
-  --color-moss-deep: #022C22;
-  --color-river: #0E7490;
-  --color-rouge: #BE123C;
+  --color-bg: #F6F4EC;
+  --color-bg-alt: #E4EAD8;
+  --color-surface: #FDFCF8;
+  --color-primary: #7E9C7A;
+  --color-primary-dark: #2F4A3A;
+  --color-footer: #1C2B22;
+  --color-accent: #E0A030;
+  --color-text: #26332B;
+  --color-text-muted: #6B7A6F;
+  --color-border: #CFD8C4;
 
   --font-display: 'Fraunces', Georgia, serif;
   --font-body: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -29,37 +19,30 @@
 }
 
 :root {
-  /* Vibrant Jewel Tone Color Palette */
-  --kiln: #130d0b;
-  --kiln-soft: #1e1310;
-  --kiln-elevated: #281813;
-  --cream: #FBF5EC;
-  --cream-deep: #F3E4CD;
-  --cream-soft: #FCF9F3;
+  /* Sage Garden Theme Palette */
+  --bg: #F6F4EC;
+  --bg-alt: #E4EAD8;
+  --surface: #FDFCF8;
+  --primary: #7E9C7A;
+  --primary-dark: #2F4A3A;
+  --footer: #1C2B22;
+  --accent: #E0A030;
+  --text: #26332B;
+  --text-muted: #6B7A6F;
+  --border: #CFD8C4;
 
-  /* Jewel Tones */
-  --ember: #E11D48;
-  --ember-glow: rgba(225, 29, 72, 0.4);
-  --saffron: #F59E0B;
-  --saffron-glow: rgba(245, 158, 11, 0.35);
-  --gold: #FBBF24;
-  --gold-glow: rgba(251, 191, 36, 0.35);
-  --brass: #D97706;
-  --brass-hairline: rgba(217, 119, 6, 0.4);
-  --ruby: #E11D48;
-  --ruby-glow: rgba(225, 29, 72, 0.35);
-  --emerald: #10B981;
-  --emerald-glow: rgba(16, 185, 129, 0.35);
-  --turquoise: #06B6D4;
-  --turquoise-glow: rgba(6, 182, 212, 0.35);
-  --amethyst: #8B5CF6;
-  --amethyst-glow: rgba(139, 92, 246, 0.35);
-  --coral: #F97316;
-  --coral-glow: rgba(249, 115, 22, 0.35);
-  --moss: #064E3B;
-  --moss-deep: #022C22;
-  --river: #0E7490;
-  --rouge: #BE123C;
+  /* Backward-compatible Aliases mapped to Sage Garden */
+  --kiln: var(--bg);
+  --kiln-soft: var(--bg-alt);
+  --kiln-elevated: var(--surface);
+  --cream: var(--text);
+  --cream-deep: var(--text-muted);
+  --cream-soft: var(--bg);
+  --ember: var(--accent);
+  --saffron: var(--accent);
+  --gold: var(--primary);
+  --brass: var(--primary-dark);
+  --brass-hairline: var(--border);
 
   /* Typography */
   --font-display: 'Fraunces', Georgia, serif;
@@ -77,8 +60,8 @@
 }
 
 html {
-  background-color: var(--kiln);
-  color: var(--cream);
+  background-color: var(--bg);
+  color: var(--text);
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
@@ -88,17 +71,16 @@ html {
 
 body {
   min-height: 100vh;
-  background-color: var(--kiln);
-  color: var(--cream);
+  background-color: var(--bg);
+  color: var(--text);
   position: relative;
   overflow-x: hidden;
   cursor: default;
 }
 
-
 ::selection {
-  background-color: var(--ember);
-  color: var(--cream-soft);
+  background-color: var(--primary);
+  color: var(--primary-dark);
 }
 
 /* Custom Scrollbar */
@@ -106,14 +88,14 @@ body {
   width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--kiln);
+  background: var(--bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--brass-hairline);
+  background: var(--border);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--gold);
+  background: var(--primary);
 }
 
 /* Arch Doorway & Plate Masks */
@@ -129,10 +111,10 @@ body {
   border-radius: 50%;
 }
 
-/* Brass Dotted Leaders */
+/* Dotted Leaders */
 .brass-dotted-leader {
   flex-grow: 1;
-  border-bottom: 2px dotted var(--brass-hairline);
+  border-bottom: 2px dotted var(--border);
   margin: 0 12px;
   transform: translateY(-4px);
 }
@@ -145,53 +127,57 @@ body {
   height: 100%;
   pointer-events: none;
   z-index: 999;
-  opacity: 0.045;
+  opacity: 0.008;
 }
 
-/* Interactive Pill Button with Liquid Fill */
+/* Main CTA Button: Saffron Accent with Deep Forest text */
 .btn-ember {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: linear-gradient(135deg, #991B1B 0%, #C2410C 48%, #D97706 100%);
-  color: #FCF9F3;
+  background-color: var(--accent);
+  color: var(--primary-dark);
   font-family: var(--font-mono);
   font-size: 0.85rem;
+  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: 12px 28px;
   border-radius: 9999px;
-  border: 1px solid rgba(245, 158, 11, 0.4);
+  border: 1px solid var(--accent);
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.3s var(--ease-settle), box-shadow 0.3s var(--ease-settle);
+  transition: transform 0.3s var(--ease-settle), box-shadow 0.3s var(--ease-settle), background-color 0.3s var(--ease-settle);
   text-decoration: none;
-  box-shadow: 0 4px 18px rgba(153, 27, 27, 0.25);
+  box-shadow: 0 4px 14px rgba(28, 43, 34, 0.12);
 }
 
 .btn-ember:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(217, 119, 6, 0.35);
+  background-color: #d69528;
+  box-shadow: 0 8px 20px rgba(28, 43, 34, 0.18);
 }
 
 .btn-ember:active {
   transform: translateY(0);
 }
 
+/* Secondary Button: Sage / Deep Forest outline */
 .btn-brass-outline {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   background-color: transparent;
-  color: var(--cream);
+  color: var(--primary-dark);
   font-family: var(--font-mono);
   font-size: 0.85rem;
+  font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: 12px 28px;
   border-radius: 9999px;
-  border: 1px solid var(--brass);
+  border: 1px solid var(--primary);
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -200,9 +186,10 @@ body {
 }
 
 .btn-brass-outline:hover {
-  background-color: var(--brass);
-  color: var(--kiln);
-  box-shadow: 0 8px 20px var(--gold-glow);
+  background-color: var(--primary-dark);
+  color: var(--bg);
+  border-color: var(--primary-dark);
+  box-shadow: 0 6px 18px rgba(28, 43, 34, 0.15);
   transform: translateY(-2px);
 }
 
@@ -254,11 +241,11 @@ body {
 }
 
 .animate-slide-in-right {
-  animation: slideInRight 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: slideInRight 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-slide-in-left {
-  animation: slideInLeft 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: slideInLeft 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* 3D Floating Food Slider Transitions */
@@ -290,6 +277,50 @@ body {
 
 .animate-foodSlideLeft {
   animation: foodSlideLeft 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Subtle Page Detailing Animations */
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
 }
 
 /* Reduced Motion Fallback */

@@ -58,22 +58,25 @@ export default function Navbar() {
           isVisible ? 'translate-y-0' : '-translate-y-full'
         } ${
           isScrolled
-            ? 'bg-[#130D0B]/92 backdrop-blur-md border-b border-amber-500/20 py-3.5 shadow-2xl'
+            ? 'bg-[var(--surface)]/95 backdrop-blur-md border-b border-[var(--border)] py-3.5 shadow-sm'
             : 'bg-transparent py-5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 relative flex items-center justify-between min-h-[52px]">
           {/* Brand Logo with Bespoke Crest & Typography */}
           <Link
             to="/"
-            className="group text-decoration-none"
+            className="group text-decoration-none z-10 shrink-0"
             data-cursor="Home"
           >
             <BrandLogo />
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-8" aria-label="Main Navigation">
+          {/* Desktop Navigation Links - Truly centered with page layout */}
+          <nav
+            className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
+            aria-label="Main Navigation"
+          >
             {SITE_CONFIG.navigation
               .filter((item) => item.path !== '/reserve' && item.path !== '/contact')
               .map((item) => {
@@ -84,14 +87,14 @@ export default function Navbar() {
                     to={item.path}
                     className={`text-sm font-mono uppercase tracking-[0.15em] transition-all relative py-1 ${
                       isActive
-                        ? 'text-[#E5B869] font-medium'
-                        : 'text-[#F5E9D4]/80 hover:text-[#E5B869]'
+                        ? 'text-[var(--primary-dark)] font-semibold'
+                        : 'text-[var(--text-muted)] hover:text-[var(--primary-dark)]'
                     }`}
                     data-cursor="Explore"
                   >
                     {item.label}
                     {isActive && (
-                      <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#E5B869] shadow-[0_0_8px_rgba(229,184,105,0.6)] rounded-full" />
+                      <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[var(--primary)] shadow-[0_0_8px_rgba(126,156,122,0.5)] rounded-full" />
                     )}
                   </Link>
                 )
@@ -99,13 +102,13 @@ export default function Navbar() {
           </nav>
 
           {/* Right Action: Table Reservation Button & Mobile Hamburger */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 z-10 shrink-0">
             <Button
               to="/reserve"
               variant="ember"
               className={`hidden sm:inline-flex !py-2.5 !px-5 text-xs font-mono ${
                 location.pathname === '/reserve' || location.pathname === '/contact'
-                  ? 'ring-2 ring-[#E5B869] shadow-[0_0_15px_rgba(229,184,105,0.4)]'
+                  ? 'ring-2 ring-[var(--accent)] shadow-[0_0_12px_rgba(224,160,48,0.4)]'
                   : ''
               }`}
               cursorLabel="Reserve"
@@ -116,7 +119,7 @@ export default function Navbar() {
 
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
-              className="lg:hidden p-2 rounded-full border border-[#B8894B]/40 bg-[#2A1812] text-[#F5E9D4] hover:text-[#E8A317] hover:border-[#E8A317] transition-colors"
+              className="lg:hidden p-2 rounded-full border border-[var(--border)] bg-[var(--surface)] text-[var(--primary-dark)] hover:text-[var(--primary)] hover:border-[var(--primary)] transition-colors"
               aria-label="Toggle menu"
             >
               {isMobileOpen ? <X className="w-5 h-5" /> : <MenuIcon className="w-5 h-5" />}

@@ -17,7 +17,6 @@ import Cursor from './components/Cursor'
 import ScrollProgress from './components/ScrollProgress'
 import GrainOverlay from './components/GrainOverlay'
 import Preloader from './components/Preloader'
-import PageTransition from './components/PageTransition'
 
 // Pages
 import Home from './pages/Home'
@@ -93,7 +92,6 @@ function App() {
     <LenisContext.Provider value={lenisInstance}>
       <Router>
         <ScrollToTop lenis={lenisInstance} />
-        <PageTransition />
         
         {/* Film Grain Texture */}
         <GrainOverlay />
@@ -107,7 +105,7 @@ function App() {
         {/* Ceremonial Diya Lamp Preloader */}
         <Preloader onComplete={() => setPreloaderDone(true)} />
 
-        <div className="flex flex-col min-h-screen bg-[#1B100C] text-[#F5E9D4] relative">
+        <div className="flex flex-col min-h-screen bg-[var(--bg)] text-[var(--text)] relative">
           {/* Floating Navbar */}
           <Navbar />
 

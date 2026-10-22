@@ -52,7 +52,7 @@ export default function Embers({ count = 32, className = '' }) {
       size: Math.random() * 2.2 + 0.8,
       opacity: Math.random() * 0.65 + 0.2,
       fadeRate: (Math.random() * 0.008 + 0.003) * (Math.random() > 0.5 ? 1 : -1),
-      hue: Math.random() > 0.4 ? 'rgba(232, 163, 23, ' : 'rgba(196, 83, 43, ', // Gold or Ember
+      hue: Math.random() > 0.4 ? 'rgba(126, 156, 122, ' : 'rgba(224, 160, 48, ', // Sage or Saffron
     }))
 
     const render = () => {

@@ -22,7 +22,7 @@ export default function TestimonialsCarousel() {
   const [animating, setAnimating] = useState(false)
   const timerRef = useRef(null)
 
-  const AUTOPLAY_INTERVAL = 5200 // 5.2 seconds per slide
+  const AUTOPLAY_INTERVAL = 3000 // 3.0 seconds per slide for a brisk, engaging rhythm
 
   // Auto-sliding interval effect
   useEffect(() => {
@@ -61,20 +61,18 @@ export default function TestimonialsCarousel() {
   return (
     <div
       className="relative w-full max-w-4xl mx-auto mt-10"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
       onTouchStart={() => setIsPaused(true)}
       onTouchEnd={() => setIsPaused(false)}
     >
       <TiltCard
         maxTilt={4}
-        className="relative p-8 sm:p-12 md:p-14 rounded-3xl bg-[#221612]/92 backdrop-blur-md border border-[#B8894B]/35 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85)] overflow-hidden"
+        className="relative p-8 sm:p-12 md:p-14 rounded-3xl bg-[var(--surface)] backdrop-blur-md border border-[var(--border)] shadow-[0_25px_60px_-15px_rgba(28,43,34,0.08)] overflow-hidden"
       >
         {/* Subtle Progress Bar along Top Border (fills during autoplay) */}
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#B8894B]/15 overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-[var(--border)]/40 overflow-hidden">
           <div
             key={currentIndex + (isPaused ? '-paused' : '-active')}
-            className={`h-full bg-gradient-to-r from-[#B8894B] via-[#E5B869] to-[#F5E9D4] transition-all ${
+            className={`h-full bg-gradient-to-r from-[var(--primary)] via-[var(--primary-dark)] to-[var(--accent)] transition-all ${
               isPaused ? 'opacity-40' : 'opacity-100'
             }`}
             style={{
@@ -86,20 +84,20 @@ export default function TestimonialsCarousel() {
         </div>
 
         {/* Ambient Warm Candlelight Glow Inside Card */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-amber-600/10 rounded-full blur-[80px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--primary)]/10 rounded-full blur-[80px] pointer-events-none" />
 
         {/* Large Decorative Amber Quotation Mark */}
         <div className="flex justify-between items-start mb-4">
-          <span className="text-5xl sm:text-6xl font-display text-[#E5B869]/70 leading-none select-none">
+          <span className="text-5xl sm:text-6xl font-display text-[var(--primary)]/60 leading-none select-none">
             “
           </span>
 
           {/* Star Rating */}
-          <div className="flex items-center gap-1 bg-[#18100C]/80 px-3 py-1.5 rounded-full border border-[#B8894B]/30">
+          <div className="flex items-center gap-1 bg-[var(--bg-alt)] px-3 py-1.5 rounded-full border border-[var(--border)]">
             {[...Array(current.rating || 5)].map((_, i) => (
               <Star
                 key={i}
-                className="w-3.5 h-3.5 fill-[#E5B869] text-[#E5B869] drop-shadow-[0_0_4px_rgba(229,184,105,0.6)]"
+                className="w-3.5 h-3.5 fill-[var(--accent)] text-[var(--accent)]"
               />
             ))}
           </div>
@@ -109,43 +107,43 @@ export default function TestimonialsCarousel() {
         <div className="min-h-[160px] sm:min-h-[140px] flex flex-col justify-center">
           <div
             key={currentIndex}
-            className={`transition-all duration-500 ease-out ${
+            className={`transition-all duration-300 ease-out ${
               direction === 'next'
                 ? 'animate-slide-in-right'
                 : 'animate-slide-in-left'
             }`}
           >
             {/* Quote Body */}
-            <p className="font-display text-xl sm:text-2xl md:text-3xl text-[#F5E9D4] italic leading-relaxed sm:leading-snug">
+            <p className="font-display text-xl sm:text-2xl md:text-3xl text-[var(--primary-dark)] italic leading-relaxed sm:leading-snug">
               {current.quote}
             </p>
 
             {/* Author & Role */}
             <div className="mt-6 flex flex-col sm:flex-row sm:items-center justify-center gap-1 sm:gap-3 text-center">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#E5B869] font-semibold">
+              <span className="font-mono text-xs uppercase tracking-widest text-[var(--primary-dark)] font-semibold">
                 {current.author}
               </span>
-              <span className="hidden sm:inline text-[#B8894B]/50">·</span>
-              <span className="font-mono text-xs text-[#F5E9D4]/75">
+              <span className="hidden sm:inline text-[var(--border)]">·</span>
+              <span className="font-mono text-xs text-[var(--text-muted)]">
                 {current.role}
               </span>
             </div>
 
             {/* Occasion */}
             {current.occasion && (
-              <div className="font-mono text-[11px] text-[#B8894B] mt-1.5 uppercase tracking-wider text-center">
-                Occasion: <span className="text-[#F5E9D4]/80">{current.occasion}</span>
+              <div className="font-mono text-[11px] text-[var(--text-muted)] mt-1.5 uppercase tracking-wider text-center">
+                Occasion: <span className="text-[var(--text)]">{current.occasion}</span>
               </div>
             )}
           </div>
         </div>
 
         {/* Carousel Navigation Controls & Autoplay Indicator */}
-        <div className="flex items-center justify-center gap-5 mt-8 pt-4 border-t border-[#B8894B]/15">
+        <div className="flex items-center justify-center gap-5 mt-8 pt-4 border-t border-[var(--border)]">
           {/* Previous Button */}
           <button
             onClick={handlePrev}
-            className="p-2.5 rounded-full border border-[#B8894B]/40 hover:border-[#E5B869] text-[#F5E9D4] hover:text-[#E5B869] transition-all hover:scale-110 active:scale-95 bg-[#18100C]/90 shadow-md shadow-black/40"
+            className="p-2.5 rounded-full border border-[var(--border)] hover:border-[var(--primary)] text-[var(--primary-dark)] hover:text-[var(--primary-dark)] transition-all hover:scale-110 active:scale-95 bg-[var(--surface)] hover:bg-[var(--bg-alt)] shadow-sm shadow-[var(--footer)]/10"
             aria-label="Previous review"
           >
             <ChevronLeft className="w-4 h-4" />
@@ -161,8 +159,8 @@ export default function TestimonialsCarousel() {
                   onClick={() => handleSelect(i)}
                   className={`relative h-2 rounded-full cursor-pointer transition-all duration-400 overflow-hidden ${
                     isActive
-                      ? 'bg-[#E5B869] w-8 shadow-[0_0_10px_rgba(229,184,105,0.6)]'
-                      : 'bg-[#B8894B]/25 hover:bg-[#B8894B]/60 w-2'
+                      ? 'bg-[var(--primary-dark)] w-8 shadow-[0_0_10px_rgba(47,74,58,0.3)]'
+                      : 'bg-[var(--border)] hover:bg-[var(--primary)] w-2'
                   }`}
                   aria-label={`Go to review ${i + 1}`}
                   role="tab"
@@ -175,7 +173,7 @@ export default function TestimonialsCarousel() {
           {/* Next Button */}
           <button
             onClick={handleNext}
-            className="p-2.5 rounded-full border border-[#B8894B]/40 hover:border-[#E5B869] text-[#F5E9D4] hover:text-[#E5B869] transition-all hover:scale-110 active:scale-95 bg-[#18100C]/90 shadow-md shadow-black/40"
+            className="p-2.5 rounded-full border border-[var(--border)] hover:border-[var(--primary)] text-[var(--primary-dark)] hover:text-[var(--primary-dark)] transition-all hover:scale-110 active:scale-95 bg-[var(--surface)] hover:bg-[var(--bg-alt)] shadow-sm shadow-[var(--footer)]/10"
             aria-label="Next review"
           >
             <ChevronRight className="w-4 h-4" />

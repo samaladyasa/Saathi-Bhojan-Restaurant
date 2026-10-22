@@ -165,13 +165,13 @@ export default function HeroFood3DCarousel() {
       className="relative w-full max-w-md lg:max-w-lg mx-auto py-4 px-2 flex flex-col items-center justify-center select-none"
       style={{ perspective: 1200 }}
     >
-      {/* 0. Warm Atmospheric Hearth Glow (Pure soft blur, NO circle lines or motifs) */}
+      {/* 0. Soft Atmospheric Hearth Glow */}
       <div
         ref={glowRef}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] rounded-full blur-[100px] pointer-events-none transition-all duration-700 will-change-transform"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] rounded-full blur-[90px] pointer-events-none transition-all duration-700 will-change-transform"
         style={{
           background:
-            'radial-gradient(circle, rgba(229, 184, 105, 0.26) 0%, rgba(194, 65, 12, 0.10) 50%, transparent 72%)',
+            'radial-gradient(circle, rgba(126, 156, 122, 0.14) 0%, transparent 68%)',
         }}
       />
 
@@ -188,7 +188,7 @@ export default function HeroFood3DCarousel() {
         {/* Dynamic Ground Contact Shadow Beneath Floating Dish */}
         <div
           ref={shadowRef}
-          className="absolute bottom-5 left-1/2 -translate-x-1/2 w-[65%] h-14 bg-black/95 rounded-[100%] blur-2xl pointer-events-none will-change-transform"
+          className="absolute bottom-5 left-1/2 -translate-x-1/2 w-[60%] h-10 bg-[#1C2B22]/25 rounded-[100%] blur-2xl pointer-events-none will-change-transform"
         />
 
         {/* 3 Persistent 3D Food Plates (No re-mounting, zero flicker) */}
@@ -212,7 +212,7 @@ export default function HeroFood3DCarousel() {
               <img
                 src={dish.src}
                 alt={dish.alt}
-                className="w-[90%] sm:w-[95%] max-h-[340px] sm:max-h-[400px] md:max-h-[440px] object-contain drop-shadow-[0_28px_38px_rgba(0,0,0,0.92)] select-none"
+                className="w-[90%] sm:w-[95%] max-h-[340px] sm:max-h-[400px] md:max-h-[440px] object-contain drop-shadow-[0_28px_38px_rgba(28,43,34,0.35)] select-none"
                 draggable={false}
               />
             </div>
@@ -231,8 +231,8 @@ export default function HeroFood3DCarousel() {
             }}
             className={`rounded-full transition-all duration-500 ${
               currentIdx === i
-                ? 'w-7 h-2 bg-[#E5B869] shadow-[0_0_12px_rgba(229,184,105,0.85)]'
-                : 'w-2 h-2 bg-[#B8894B]/35 hover:bg-[#E5B869]/60'
+                ? 'w-7 h-2 bg-[var(--primary-dark)] shadow-[0_0_12px_rgba(47,74,58,0.35)]'
+                : 'w-2 h-2 bg-[var(--border)] hover:bg-[var(--primary)]'
             }`}
             aria-label={`Slide to dish ${i + 1}`}
           />

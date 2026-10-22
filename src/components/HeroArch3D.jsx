@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react'
 import gsap from 'gsap'
-import { Sparkles, Utensils, Flame } from 'lucide-react'
+import { Utensils, Flame } from 'lucide-react'
 import { prefersReducedMotion } from '../animations/tokens'
 import foodImg from '../assets/food.png'
 
@@ -305,12 +305,12 @@ export default function HeroArch3D() {
       style={{ perspective: 1300 }}
     >
       {/* 0. Ambient Volumetric Glow Behind Rig */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[420px] h-[480px] bg-gradient-to-tr from-amber-600/20 via-[#E5B869]/15 to-transparent rounded-full blur-[90px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[420px] h-[480px] bg-gradient-to-tr from-[var(--primary)]/20 via-[var(--accent)]/15 to-transparent rounded-full blur-[90px] pointer-events-none" />
 
       {/* 0. Dynamic Cast Ground Shadow */}
       <div
         ref={shadowRef}
-        className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-[75%] h-8 bg-black/85 rounded-[100%] blur-xl pointer-events-none transition-opacity duration-500"
+        className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-[75%] h-8 bg-[#1C2B22]/70 rounded-[100%] blur-xl pointer-events-none transition-opacity duration-500"
       />
 
       {/* 1. Main 3D Card Rig */}
@@ -319,14 +319,14 @@ export default function HeroArch3D() {
         className="relative w-full max-w-[390px] sm:max-w-[430px] h-[490px] sm:h-[540px] rounded-t-[180px] rounded-b-[24px] will-change-transform transform-gpu"
         style={{
           transformStyle: 'preserve-3d',
-          boxShadow: '0 30px 70px -15px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(184, 137, 75, 0.35)',
+          boxShadow: '0 30px 70px -15px rgba(28, 43, 34, 0.35), 0 0 0 1px rgba(207, 216, 196, 0.45)',
         }}
       >
-        {/* Layer A: Double Metallic Brass Bevel Rim */}
+        {/* Layer A: Double Metallic Rim */}
         <div
           className="absolute -inset-[3px] rounded-t-[183px] rounded-b-[27px] pointer-events-none z-30"
           style={{
-            background: 'linear-gradient(145deg, #F5E9D4 0%, #E5B869 25%, #8A5A2B 50%, #E5B869 75%, #F5E9D4 100%)',
+            background: 'linear-gradient(145deg, #F6F4EC 0%, #7E9C7A 25%, #2F4A3A 50%, #7E9C7A 75%, #F6F4EC 100%)',
             padding: '2px',
             WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
             WebkitMaskComposite: 'xor',
@@ -334,25 +334,25 @@ export default function HeroArch3D() {
           }}
         />
 
-        {/* Inner Hairline Gold Trim */}
-        <div className="absolute inset-2 rounded-t-[172px] rounded-b-[18px] border border-[#E5B869]/25 pointer-events-none z-20" />
+        {/* Inner Hairline Trim */}
+        <div className="absolute inset-2 rounded-t-[172px] rounded-b-[18px] border border-[var(--primary)]/25 pointer-events-none z-20" />
 
         {/* Layer B: The Arch Architectural Sanctum Backdrop */}
-        <div className="relative w-full h-full rounded-t-[180px] rounded-b-[24px] overflow-hidden bg-gradient-to-b from-[#1E130E] via-[#160D09] to-[#0F0705]">
+        <div className="relative w-full h-full rounded-t-[180px] rounded-b-[24px] overflow-hidden bg-gradient-to-b from-[var(--surface)] via-[var(--bg-alt)] to-[var(--bg)]">
           
-          {/* Concentric Golden Aura Rings Behind Dish */}
+          {/* Concentric Aura Rings Behind Dish */}
           <div
             ref={auraRef}
             className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 pointer-events-none"
           >
-            <div className="absolute inset-0 rounded-full border border-[#E5B869]/15 animate-pulse" />
-            <div className="absolute inset-6 rounded-full border border-dashed border-[#E5B869]/20" />
-            <div className="absolute inset-12 rounded-full border border-[#E5B869]/10" />
-            <div className="absolute inset-8 rounded-full bg-gradient-to-tr from-amber-600/25 via-[#E5B869]/20 to-transparent blur-2xl" />
+            <div className="absolute inset-0 rounded-full border border-[var(--primary)]/15 animate-pulse" />
+            <div className="absolute inset-6 rounded-full border border-dashed border-[var(--primary)]/20" />
+            <div className="absolute inset-12 rounded-full border border-[var(--primary)]/10" />
+            <div className="absolute inset-8 rounded-full bg-gradient-to-tr from-[var(--primary)]/25 via-[var(--accent)]/20 to-transparent blur-2xl" />
           </div>
 
           {/* Architectural Ray Highlights */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#E5B869]/15 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[var(--primary)]/15 via-transparent to-transparent pointer-events-none" />
 
           {/* Dynamic Specular Glass Glare Overlay */}
           <div
@@ -361,9 +361,9 @@ export default function HeroArch3D() {
             style={{ mixBlendMode: 'screen' }}
           />
 
-          {/* Micro Corner Rivets / Brass Fasteners (Bottom Corners) */}
-          <div className="absolute bottom-3 left-3 w-1.5 h-1.5 rounded-full bg-[#E5B869] shadow-[0_0_6px_rgba(229,184,105,0.8)] z-20" />
-          <div className="absolute bottom-3 right-3 w-1.5 h-1.5 rounded-full bg-[#E5B869] shadow-[0_0_6px_rgba(229,184,105,0.8)] z-20" />
+          {/* Micro Corner Rivets / Fasteners (Bottom Corners) */}
+          <div className="absolute bottom-3 left-3 w-1.5 h-1.5 rounded-full bg-[var(--primary)] shadow-[0_0_6px_rgba(126,156,122,0.8)] z-20" />
+          <div className="absolute bottom-3 right-3 w-1.5 h-1.5 rounded-full bg-[var(--primary)] shadow-[0_0_6px_rgba(126,156,122,0.8)] z-20" />
         </div>
 
         {/* Layer C: TRANSPARENT 3D ANIMATED FOOD DISH (food.png) */}
@@ -376,13 +376,13 @@ export default function HeroArch3D() {
           }}
         >
           {/* Dynamic Soft Under-Dish Drop Shadow */}
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[65%] h-12 bg-black/85 rounded-full blur-xl pointer-events-none" />
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[65%] h-12 bg-[#1C2B22]/70 rounded-full blur-xl pointer-events-none" />
 
           {/* The High-Resolution Food Dish */}
           <img
             src={foodImg}
             alt="Saathi Bhojan Signature Multi-Cuisine Bowl"
-            className="w-[88%] sm:w-[94%] max-w-[360px] object-contain drop-shadow-[0_22px_30px_rgba(0,0,0,0.9)] filter select-none pointer-events-none"
+            className="w-[88%] sm:w-[94%] max-w-[360px] object-contain drop-shadow-[0_22px_30px_rgba(28,43,34,0.35)] filter select-none pointer-events-none"
             loading="eager"
           />
         </div>
@@ -390,7 +390,7 @@ export default function HeroArch3D() {
         {/* Layer D: Floating Glassmorphism Information Plaque */}
         <div
           ref={plaqueRef}
-          className="absolute bottom-5 left-5 right-5 z-40 rounded-2xl p-4 sm:p-5 bg-[#140D0B]/90 backdrop-blur-md border border-[#E5B869]/35 shadow-[0_20px_35px_-8px_rgba(0,0,0,0.9)] will-change-transform"
+          className="absolute bottom-5 left-5 right-5 z-40 rounded-2xl p-4 sm:p-5 bg-[var(--surface)]/90 backdrop-blur-md border border-[var(--border)] shadow-[0_20px_35px_-8px_rgba(28,43,34,0.12)] will-change-transform"
           style={{
             transform: 'translateZ(42px)',
             transformStyle: 'preserve-3d',
@@ -399,23 +399,22 @@ export default function HeroArch3D() {
           {/* Eyebrow with gold star */}
           <div className="flex items-center justify-between pb-1.5">
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E5B869] animate-pulse" />
-              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-[#E5B869] font-semibold">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] animate-pulse" />
+              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-[var(--primary-dark)] font-semibold">
                 The Grand Companion Table
               </span>
             </div>
-            <Sparkles className="w-3.5 h-3.5 text-[#E5B869]/70" />
           </div>
 
           {/* Serif Title */}
-          <p className="font-display italic text-lg sm:text-xl text-[#F5E9D4] leading-snug">
+          <p className="font-display italic text-lg sm:text-xl text-[var(--primary-dark)] leading-snug">
             Where international culinary crafts share one festive table
           </p>
 
           {/* Subtext Cuisine Badges */}
-          <div className="flex items-center gap-3 pt-2.5 mt-2 border-t border-[#B8894B]/20 font-mono text-[9px] uppercase tracking-wider text-[#F5E9D4]/60">
-            <span className="flex items-center gap-1 text-[#E5B869]">
-              <Flame className="w-2.5 h-2.5 text-amber-500" />
+          <div className="flex items-center gap-3 pt-2.5 mt-2 border-t border-[var(--border)] font-mono text-[9px] uppercase tracking-wider text-[var(--text-muted)]">
+            <span className="flex items-center gap-1 text-[var(--primary-dark)]">
+              <Flame className="w-2.5 h-2.5 text-[var(--accent)]" />
               Live Hearth
             </span>
             <span>·</span>
@@ -432,17 +431,17 @@ export default function HeroArch3D() {
           style={{
             transform: 'translateZ(72px)',
             transformStyle: 'preserve-3d',
-            filter: 'drop-shadow(0 20px 25px rgba(0, 0, 0, 0.75))',
+            filter: 'drop-shadow(0 20px 25px rgba(28, 43, 34, 0.25))',
           }}
         >
           {/* Outer Multi-layered Medallion Dish */}
-          <div className="relative w-full h-full rounded-full p-1 bg-gradient-to-br from-[#E5B869] via-[#8A5A2B] to-[#E5B869] shadow-2xl flex items-center justify-center">
-            {/* Dark Obsidian Inset Cavity */}
-            <div className="relative w-full h-full rounded-full bg-[#150D0A] border border-[#E5B869]/40 flex items-center justify-center overflow-hidden">
+          <div className="relative w-full h-full rounded-full p-1 bg-gradient-to-br from-[var(--primary)] via-[var(--border)] to-[var(--primary-dark)] shadow-xl flex items-center justify-center">
+            {/* Inset Cavity */}
+            <div className="relative w-full h-full rounded-full bg-[var(--surface)] border border-[var(--border)] flex items-center justify-center overflow-hidden">
               
-              {/* Concentric etched metallic track lines */}
-              <div className="absolute inset-1.5 rounded-full border border-[#E5B869]/20 pointer-events-none" />
-              <div className="absolute inset-3 rounded-full border border-dashed border-[#E5B869]/30 pointer-events-none" />
+              {/* Concentric etched track lines */}
+              <div className="absolute inset-1.5 rounded-full border border-[var(--primary)]/20 pointer-events-none" />
+              <div className="absolute inset-3 rounded-full border border-dashed border-[var(--primary)]/30 pointer-events-none" />
 
               {/* ROTATING TYPOGRAPHIC SEAL RING (SVG) */}
               <div
@@ -458,31 +457,30 @@ export default function HeroArch3D() {
                       fill="none"
                     />
                   </defs>
-                  <text className="font-mono text-[8.2px] uppercase font-bold tracking-[0.24em] fill-[#E5B869]">
+                  <text className="font-mono text-[8.2px] uppercase font-bold tracking-[0.24em] fill-[var(--primary-dark)]">
                     <textPath
                       href="#heroArchSealPath"
                       startOffset="0%"
                       textLength="229"
                       lengthAdjust="spacing"
                     >
-                      ✦ EVERY FLAVOUR HAS A SEAT ✦ SAATHI BHOJAN
+                      · EVERY FLAVOUR HAS A SEAT · SAATHI BHOJAN
                     </textPath>
                   </text>
                 </svg>
               </div>
 
-              {/* CENTER CORE: Royal Gold Crest (Stays Perfectly Stable & Upright) */}
+              {/* CENTER CORE: Crest */}
               <div
-                className="relative z-10 w-11 h-11 rounded-full bg-gradient-to-b from-[#2A1A14] to-[#120B08] border border-[#E5B869]/60 shadow-[inset_0_2px_4px_rgba(229,184,105,0.3)] flex flex-col items-center justify-center text-center group"
+                className="relative z-10 w-11 h-11 rounded-full bg-[var(--bg-alt)] border border-[var(--primary)]/60 shadow-sm flex flex-col items-center justify-center text-center group"
                 style={{
                   transform: 'translateZ(18px)',
                 }}
               >
-                <Utensils className="w-3.5 h-3.5 text-[#E5B869] mb-0.5 drop-shadow-[0_0_4px_rgba(229,184,105,0.8)]" />
-                <span className="font-mono text-[7px] font-bold text-[#F5E9D4] tracking-widest">
+                <Utensils className="w-3.5 h-3.5 text-[var(--primary-dark)] mb-0.5" />
+                <span className="font-mono text-[7px] font-bold text-[var(--primary-dark)] tracking-widest">
                   SB
                 </span>
-                <span className="absolute -bottom-0.5 text-[6px] text-[#E5B869]">✦</span>
               </div>
             </div>
           </div>

@@ -3,43 +3,75 @@ import React from 'react'
 /**
  * Reusable animated curved section divider to eliminate straight horizontal edges.
  * @param {'convex'|'concave'|'wave'|'arch'|'scallop'} variant
- * @param {boolean} flip - Flips vertically
- * @param {string} fromColor - CSS color or token (e.g., 'var(--kiln)', 'var(--cream)')
- * @param {string} toColor - Background underneath
+ * @param {boolean} flip - Flips vertically (scaleY)
+ * @param {boolean} mirror - Flips horizontally (scaleX)
+ * @param {string} fromColor - CSS color or token (fills the curve, usually next section's bg)
+ * @param {string} toColor - Background underneath the curve (usually previous section's bg)
+ * @param {number|string} height - Height of the divider in px (default 96)
  * @param {string} className
  */
 export default function CurveDivider({
-  variant = 'convex',
+  variant = 'wave',
   flip = false,
-  fromColor = 'var(--kiln)',
+  mirror = false,
+  fromColor = 'var(--bg-alt)',
   toColor = 'transparent',
-  height = 64,
+  height = 96,
+  strokeColor = '',
+  strokeWidth = 1.5,
+  strokeOpacity = 0.4,
   className = '',
 }) {
   const getPath = () => {
     switch (variant) {
-      case 'concave':
-        return 'M0,0 Q600,100 1200,0 L1200,100 L0,100 Z'
-      case 'convex':
-        return 'M0,100 Q600,0 1200,100 L1200,100 L0,100 Z'
       case 'wave':
-        return 'M0,50 Q300,100 600,50 T1200,50 L1200,100 L0,100 Z'
+        // Smooth, organic undulating wave with generous curves
+        return 'M0,38 C280,108 440,8 720,58 C1000,108 1160,18 1440,48 L1440,121 L0,121 Z'
+      case 'convex':
+      case 'curve':
+        // Deep, luxurious architectural curve scoop
+        return 'M0,0 C380,105 1060,105 1440,0 L1440,121 L0,121 Z'
+      case 'concave':
       case 'arch':
-        return 'M0,100 C300,10 900,10 1200,100 L1200,100 L0,100 Z'
+        // Arched dome rising upward
+        return 'M0,120 C360,12 1080,12 1440,120 L1440,121 L0,121 Z'
       case 'scallop':
-        return 'M0,100 Q150,20 300,100 Q450,20 600,100 Q750,20 900,100 Q1050,20 1200,100 L1200,100 L0,100 Z'
+        // Rhythmic royal canopy scalloped wave
+        return 'M0,121 L0,100 Q120,20 240,100 Q360,20 480,100 Q600,20 720,100 Q840,20 960,100 Q1080,20 1200,100 Q1320,20 1440,100 L1440,121 Z'
       default:
-        return 'M0,100 Q600,0 1200,100 L1200,100 L0,100 Z'
+        return 'M0,38 C280,108 440,8 720,58 C1000,108 1160,18 1440,48 L1440,121 L0,121 Z'
     }
   }
+
+  const getStrokePath = () => {
+    switch (variant) {
+      case 'wave':
+        return 'M0,38 C280,108 440,8 720,58 C1000,108 1160,18 1440,48'
+      case 'convex':
+      case 'curve':
+        return 'M0,0 C380,105 1060,105 1440,0'
+      case 'concave':
+      case 'arch':
+        return 'M0,120 C360,12 1080,12 1440,120'
+      case 'scallop':
+        return 'M0,100 Q120,20 240,100 Q360,20 480,100 Q600,20 720,100 Q840,20 960,100 Q1080,20 1200,100 Q1320,20 1440,100'
+      default:
+        return 'M0,38 C280,108 440,8 720,58 C1000,108 1160,18 1440,48'
+    }
+  }
+
+  const computedHeight = typeof height === 'number' ? `${height}px` : height
+  const transform = [
+    flip ? 'scaleY(-1)' : '',
+    mirror ? 'scaleX(-1)' : '',
+  ].filter(Boolean).join(' ')
 
   return (
     <div
       className={`relative w-full overflow-hidden leading-none select-none pointer-events-none ${className}`}
       style={{
-        height: `${height}px`,
+        height: computedHeight,
         backgroundColor: toColor,
-        transform: flip ? 'rotate(180deg)' : 'none',
         marginTop: '-1px',
         marginBottom: '-1px',
         zIndex: 2,
@@ -47,12 +79,26 @@ export default function CurveDivider({
       aria-hidden="true"
     >
       <svg
-        viewBox="0 0 1200 100"
+        viewBox="0 0 1440 120"
         preserveAspectRatio="none"
         className="w-full h-full block"
-        style={{ fill: fromColor }}
+        style={{
+          fill: fromColor,
+          transform: transform || undefined,
+          transformOrigin: 'center center',
+        }}
       >
         <path d={getPath()} />
+        {strokeColor && (
+          <path
+            d={getStrokePath()}
+            fill="none"
+            stroke={strokeColor}
+            strokeWidth={strokeWidth}
+            strokeOpacity={strokeOpacity}
+            vectorEffect="non-scaling-stroke"
+          />
+        )}
       </svg>
     </div>
   )

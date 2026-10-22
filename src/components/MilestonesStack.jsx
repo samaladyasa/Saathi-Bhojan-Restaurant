@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Sparkles, Flame, Compass, ShieldCheck, Users, ArrowUpRight } from 'lucide-react'
+import { HeartHandshake, Flame, Compass, ShieldCheck, Users, ArrowUpRight } from 'lucide-react'
 import { prefersReducedMotion } from '../animations/tokens'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -14,7 +14,7 @@ const MILESTONES = [
       'Saathi Bhojan is founded on a singular ideal: whenever family or friends gather, every companion should enjoy their favorite cuisine without compromise.',
     tag: 'THE BEGINNING',
     eraNumber: '01',
-    icon: Sparkles,
+    icon: HeartHandshake,
     highlights: ['Heritage Dining Room', 'Family-First Philosophy', 'Zero-Compromise Table'],
     quote: '"One table where everyone belongs."',
   },
@@ -166,19 +166,19 @@ export default function MilestonesStack() {
   return (
     <div ref={containerRef} className="relative w-full max-w-5xl mx-auto mt-14 pb-16">
       {/* Background Subtle Spine Line (Desktop) */}
-      <div className="hidden lg:block absolute left-8 top-10 bottom-24 w-[2px] bg-[#B8894B]/20 pointer-events-none">
-        {/* Active Golden Scroll Fill */}
+      <div className="hidden lg:block absolute left-8 top-10 bottom-24 w-[2px] bg-[var(--border)] pointer-events-none">
+        {/* Active Scroll Fill */}
         <div
           ref={progressLineRef}
-          className="w-full h-full bg-gradient-to-b from-[#E5B869] via-[#E8A317] to-[#F5E9D4] origin-top scale-y-0 shadow-[0_0_12px_rgba(229,184,105,0.7)]"
+          className="w-full h-full bg-gradient-to-b from-[var(--primary)] via-[var(--primary-dark)] to-[var(--accent)] origin-top scale-y-0 shadow-[0_0_12px_rgba(47,74,58,0.3)]"
         />
 
-        {/* Floating Lamp Diya Indicator */}
+        {/* Floating Lamp Indicator */}
         <div
           ref={lampRef}
-          className="absolute -left-[11px] w-6 h-6 rounded-full bg-[#1B100C] border-2 border-[#E5B869] shadow-[0_0_16px_rgba(232,163,23,0.9)] flex items-center justify-center text-[10px] text-[#E5B869] transition-transform will-change-transform"
+          className="absolute -left-[11px] w-6 h-6 rounded-full bg-[var(--surface)] border-2 border-[var(--primary-dark)] shadow-[0_0_16px_rgba(47,74,58,0.25)] flex items-center justify-center text-[10px] text-[var(--primary-dark)] transition-transform will-change-transform"
         >
-          ✦
+          <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary-dark)]" />
         </div>
       </div>
 
@@ -201,73 +201,55 @@ export default function MilestonesStack() {
             >
               {/* The Masterpiece Stacking Card */}
               <div
-                className="relative rounded-3xl p-7 sm:p-10 md:p-12 bg-gradient-to-br from-[#241712]/96 via-[#1D110D]/95 to-[#160D09]/98 border border-[#B8894B]/35 hover:border-[#E5B869]/70 backdrop-blur-xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85)] transition-all group overflow-hidden"
+                className="relative rounded-3xl p-7 sm:p-10 md:p-12 bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--primary)] backdrop-blur-xl shadow-[0_25px_60px_-15px_rgba(28,43,34,0.12)] transition-all group overflow-hidden"
               >
-                {/* Ambient Warm Golden Sheen Corner */}
-                <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-bl from-[#E5B869]/10 via-[#B8894B]/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+                {/* Ambient Sheen Corner */}
+                <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-bl from-[var(--primary)]/10 via-[var(--bg-alt)]/20 to-transparent rounded-full blur-3xl pointer-events-none" />
 
-                {/* Top Subtle Brass Hairline */}
-                <div className="absolute top-0 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-[#E5B869]/40 to-transparent" />
+                {/* Top Subtle Hairline */}
+                <div className="absolute top-0 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-[var(--primary)]/40 to-transparent" />
 
                 <div className="relative z-10 flex flex-col md:flex-row md:items-start justify-between gap-8">
-                  {/* Left Column: Huge Year & Era Medallion */}
-                  <div className="flex sm:flex-col items-center sm:items-start gap-4 shrink-0 sm:min-w-[170px]">
+                  {/* Left Column: Huge Year & Index Tag */}
+                  <div className="flex sm:flex-col items-center sm:items-start gap-3 shrink-0 sm:min-w-[170px]">
                     {/* Big Year Number */}
-                    <div className="font-mono text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight bg-gradient-to-r from-[#F5E9D4] via-[#E5B869] to-[#C99742] bg-clip-text text-transparent drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">
+                    <div className="font-mono text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[var(--primary-dark)]">
                       {item.year}
                     </div>
 
-                    {/* Era Medallion Pill */}
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#170E0B] border border-[#B8894B]/40 text-[#E5B869] text-xs font-mono tracking-wider shadow-inner">
-                      <IconComponent className="w-3.5 h-3.5 text-[#E5B869]" />
-                      <span>ERA {item.eraNumber}</span>
-                    </div>
-
                     {/* Index Counter */}
-                    <div className="hidden sm:block font-mono text-[11px] text-[#B8894B]/60 tracking-[0.2em]">
+                    <div className="hidden sm:block font-mono text-[11px] text-[var(--text-muted)] tracking-[0.2em]">
                       {item.tag}
                     </div>
                   </div>
 
-                  {/* Right Column: Title, Narrative & Highlight Chips */}
+                  {/* Right Column: Title & Narrative */}
                   <div className="flex-1 space-y-4">
                     {/* Mobile Eyebrow Tag */}
-                    <span className="sm:hidden font-mono text-xs uppercase tracking-widest text-[#E5B869] block">
+                    <span className="sm:hidden font-mono text-xs uppercase tracking-widest text-[var(--text-muted)] block">
                       {item.tag}
                     </span>
 
                     {/* Headline */}
-                    <h3 className="font-display italic text-2xl sm:text-3xl md:text-4xl text-[#F5E9D4] leading-tight group-hover:text-[#FFF4DD] transition-colors">
+                    <h3 className="font-display italic text-2xl sm:text-3xl md:text-4xl text-[var(--primary-dark)] leading-tight transition-colors">
                       {item.title}
                     </h3>
 
                     {/* Story Description */}
-                    <p className="font-body text-sm sm:text-base text-[#F5E9D4]/80 leading-relaxed max-w-2xl">
+                    <p className="font-body text-sm sm:text-base text-[var(--text)] leading-relaxed max-w-2xl">
                       {item.description}
                     </p>
 
                     {/* Signature Quote Line */}
-                    <p className="font-display italic text-xs sm:text-sm text-[#E5B869]/90 border-l-2 border-[#E5B869]/40 pl-3 pt-0.5">
+                    <p className="font-display italic text-xs sm:text-sm text-[var(--primary-dark)] border-l-2 border-[var(--primary)]/60 pl-3 pt-0.5">
                       {item.quote}
                     </p>
-
-                    {/* Highlight Chips */}
-                    <div className="flex flex-wrap items-center gap-2.5 pt-3">
-                      {item.highlights.map((h, i) => (
-                        <span
-                          key={i}
-                          className="px-3 py-1 rounded-full text-xs font-mono bg-[#19100C]/80 border border-[#B8894B]/30 text-[#F5E9D4]/80 group-hover:border-[#E5B869]/40 transition-colors"
-                        >
-                          ✦ {h}
-                        </span>
-                      ))}
-                    </div>
                   </div>
                 </div>
 
                 {/* Bottom Card Hairline Corner Fasteners */}
-                <div className="absolute bottom-3 left-3 w-1.5 h-1.5 rounded-full bg-[#E5B869]/60 shadow-[0_0_6px_rgba(229,184,105,0.7)]" />
-                <div className="absolute bottom-3 right-3 w-1.5 h-1.5 rounded-full bg-[#E5B869]/60 shadow-[0_0_6px_rgba(229,184,105,0.7)]" />
+                <div className="absolute bottom-3 left-3 w-1.5 h-1.5 rounded-full bg-[var(--primary)]/60 shadow-[0_0_6px_rgba(126,156,122,0.4)]" />
+                <div className="absolute bottom-3 right-3 w-1.5 h-1.5 rounded-full bg-[var(--primary)]/60 shadow-[0_0_6px_rgba(126,156,122,0.4)]" />
               </div>
             </div>
           )

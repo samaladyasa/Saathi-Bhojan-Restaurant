@@ -17,17 +17,17 @@ export default function Lightbox({ images, currentIndex, onClose, onPrev, onNext
 
   return (
     <div
-      className="fixed inset-0 z-[10000] bg-[#1B100C]/95 backdrop-blur-lg flex flex-col justify-between p-4 sm:p-8 animate-fadeIn"
+      className="fixed inset-0 z-[10000] bg-[#1C2B22]/95 backdrop-blur-lg flex flex-col justify-between p-4 sm:p-8 animate-fadeIn"
       onClick={onClose}
     >
       {/* Top Header */}
-      <div className="flex items-center justify-between text-[#F5E9D4] relative z-20">
-        <div className="font-mono text-xs uppercase tracking-widest text-[#B8894B]">
+      <div className="flex items-center justify-between text-[var(--bg)] relative z-20">
+        <div className="font-mono text-xs uppercase tracking-widest text-[var(--primary)]">
           Saathi Bhojan Archives · {currentIndex + 1} / {images.length}
         </div>
         <button
           onClick={onClose}
-          className="p-2 rounded-full border border-[#B8894B]/30 bg-[#2A1812] text-[#F5E9D4] hover:text-[#E8A317] hover:scale-110 transition-transform"
+          className="p-2 rounded-full border border-[var(--border)]/40 bg-[#1C2B22] text-[var(--bg)] hover:text-[var(--accent)] hover:scale-110 transition-transform"
           aria-label="Close lightbox"
         >
           <X className="w-6 h-6" />
@@ -42,20 +42,20 @@ export default function Lightbox({ images, currentIndex, onClose, onPrev, onNext
         <img
           src={currentImage.url}
           alt={currentImage.title}
-          className="max-h-[70vh] w-auto max-w-full object-contain rounded-xl border border-[#B8894B]/30 shadow-2xl"
+          className="max-h-[70vh] w-auto max-w-full object-contain rounded-xl border border-[var(--border)]/30 shadow-2xl shadow-black/50"
         />
 
         {/* Prev / Next Buttons */}
         <button
           onClick={onPrev}
-          className="absolute left-2 sm:-left-12 top-1/2 -translate-y-1/2 p-3 rounded-full bg-[#1B100C]/70 border border-[#B8894B]/40 text-[#F5E9D4] hover:text-[#E8A317] hover:scale-110 transition-transform"
+          className="absolute left-2 sm:-left-12 top-1/2 -translate-y-1/2 p-3 rounded-full bg-[#1C2B22]/80 border border-[var(--border)]/40 text-[var(--bg)] hover:text-[var(--accent)] hover:scale-110 transition-transform"
           aria-label="Previous image"
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
         <button
           onClick={onNext}
-          className="absolute right-2 sm:-right-12 top-1/2 -translate-y-1/2 p-3 rounded-full bg-[#1B100C]/70 border border-[#B8894B]/40 text-[#F5E9D4] hover:text-[#E8A317] hover:scale-110 transition-transform"
+          className="absolute right-2 sm:-right-12 top-1/2 -translate-y-1/2 p-3 rounded-full bg-[#1C2B22]/80 border border-[var(--border)]/40 text-[var(--bg)] hover:text-[var(--accent)] hover:scale-110 transition-transform"
           aria-label="Next image"
         >
           <ChevronRight className="w-6 h-6" />
@@ -67,10 +67,10 @@ export default function Lightbox({ images, currentIndex, onClose, onPrev, onNext
         className="max-w-2xl mx-auto text-center space-y-1.5 pb-4 z-20"
         onClick={(e) => e.stopPropagation()}
       >
-        <h3 className="font-display text-xl sm:text-2xl text-[#F5E9D4]">
+        <h3 className="font-display text-xl sm:text-2xl text-[var(--bg)]">
           {currentImage.title}
         </h3>
-        <p className="font-body text-xs sm:text-sm text-[#F5E9D4]/75">
+        <p className="font-body text-xs sm:text-sm text-[var(--bg)]/80">
           {currentImage.caption}
         </p>
       </div>

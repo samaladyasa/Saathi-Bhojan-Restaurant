@@ -127,28 +127,23 @@ export default function PinnedDishesShowcase({ dishes, onSelectDish }) {
   return (
     <div
       ref={sectionRef}
-      className="relative w-full overflow-hidden min-h-screen flex flex-col justify-center py-16 bg-[#F5E9D4] text-[#1B100C]"
+      className="relative w-full overflow-hidden min-h-screen flex flex-col justify-center py-16 bg-[var(--bg-alt)] text-[var(--text)]"
     >
-      {/* Soft Warm Champagne Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-amber-500/5 rounded-full blur-[140px] pointer-events-none" />
+      {/* Soft Ambient Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[var(--primary)]/10 rounded-full blur-[140px] pointer-events-none" />
 
       {/* Section Header */}
       <div className="max-w-7xl mx-auto w-full px-6 sm:px-12 mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 relative z-10">
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-[#C4532B] text-xs">◆</span>
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#8E2418] font-medium">
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--text-muted)] font-medium">
               Signature Showcase
             </span>
-            <span className="text-[#C4532B] text-xs">◆</span>
           </div>
-          <h2 className="font-display text-3xl sm:text-5xl text-[#1B100C] tracking-tight">
-            Crafted for <span className="italic font-normal text-[#C4532B]">The Companion</span> Table
+          <h2 className="font-display text-3xl sm:text-5xl text-[var(--primary-dark)] tracking-tight">
+            Crafted for <span className="italic font-normal text-[var(--primary)]">The Companion</span> Table
           </h2>
         </div>
-        <p className="font-mono text-xs text-[#8E2418] uppercase tracking-widest hidden sm:block">
-          Scroll vertically to glide through ⟶
-        </p>
       </div>
 
       {/* Horizontal Rail Track */}
@@ -169,7 +164,7 @@ export default function PinnedDishesShowcase({ dishes, onSelectDish }) {
                 <TiltCard
                   maxTilt={5}
                   onClick={() => onSelectDish(dish)}
-                  className="group relative w-[215px] sm:w-[245px] lg:w-[265px] h-[340px] sm:h-[385px] lg:h-[405px] rounded-t-[140px] rounded-b-[44px] overflow-hidden border-2 border-[#B8894B]/45 hover:border-[#E5B869] shadow-xl shadow-[#8E2418]/15 hover:shadow-2xl hover:shadow-[#C4532B]/25 transition-all duration-500 cursor-pointer bg-[#F5E9D4]"
+                  className="group relative w-[215px] sm:w-[245px] lg:w-[265px] h-[340px] sm:h-[385px] lg:h-[405px] rounded-t-[140px] rounded-b-[44px] overflow-hidden border-2 border-[var(--border)] hover:border-[var(--primary)] shadow-xl shadow-[var(--footer)]/10 hover:shadow-2xl hover:shadow-[var(--footer)]/20 transition-all duration-500 cursor-pointer bg-[var(--surface)]"
                   data-cursor={dish.name}
                 >
                   {/* Inner Parallax Dish Image - Oversized with 20% bleed buffer on all sides */}
@@ -184,11 +179,8 @@ export default function PinnedDishesShowcase({ dishes, onSelectDish }) {
                     </div>
                   </div>
 
-                  {/* Soft Cinematic Vignette Overlay */}
-                  <div className="absolute inset-0 rounded-t-[140px] rounded-b-[44px] bg-gradient-to-t from-black/25 via-transparent to-black/10 opacity-30 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none" />
-
-                  {/* Golden Hairline Inner Highlight Rim */}
-                  <div className="absolute inset-0 rounded-t-[140px] rounded-b-[44px] border border-transparent group-hover:border-[#E5B869]/70 transition-colors duration-500 pointer-events-none" />
+                  {/* Inner Highlight Rim */}
+                  <div className="absolute inset-0 rounded-t-[140px] rounded-b-[44px] border border-transparent group-hover:border-[var(--primary)]/70 transition-colors duration-500 pointer-events-none" />
                 </TiltCard>
               </div>
             )

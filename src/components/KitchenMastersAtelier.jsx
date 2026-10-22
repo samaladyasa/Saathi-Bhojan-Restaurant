@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Utensils, Flame, Sparkles, Award, MapPin, Quote, ChevronRight } from 'lucide-react'
+import { Utensils, Flame, Award, MapPin, Quote, ChevronRight } from 'lucide-react'
 import SectionHeading from './SectionHeading'
 
 const MASTERS_DATA = [
@@ -14,8 +14,8 @@ const MASTERS_DATA = [
     image: 'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=800&auto=format&fit=crop',
     quote: 'Patience in natural sourdough fermentation is the true soul of Neapolitan craft.',
     signature: 'Truffle Burrata Sourdough & Hand-Rolled Cacio e Pepe',
-    accentColor: '#E5B869',
-    icon: Sparkles,
+    accentColor: '#E0A030',
+    icon: Award,
   },
   {
     id: 2,
@@ -69,11 +69,11 @@ export default function KitchenMastersAtelier() {
               onClick={() => setActiveId(m.id)}
               className={`flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full font-mono text-xs uppercase tracking-wider transition-all duration-300 ${
                 isActive
-                  ? 'bg-gradient-to-r from-[#B8894B] to-[#E5B869] text-[#130D0B] font-bold shadow-lg shadow-[#E5B869]/25 scale-105'
-                  : 'bg-[#1F1410] border border-[#B8894B]/30 text-[#F5E9D4]/75 hover:text-[#E5B869] hover:border-[#E5B869]/50'
+                  ? 'bg-[var(--primary-dark)] text-[var(--bg)] font-bold shadow-lg shadow-[var(--footer)]/25 scale-105'
+                  : 'bg-[var(--surface)] border border-[var(--border)] text-[var(--text-muted)] hover:text-[var(--primary-dark)] hover:border-[var(--primary)]'
               }`}
             >
-              <IconComp className={`w-3.5 h-3.5 ${isActive ? 'text-[#130D0B]' : 'text-[#E5B869]'}`} />
+              <IconComp className={`w-3.5 h-3.5 ${isActive ? 'text-[var(--bg)]' : 'text-[var(--primary)]'}`} />
               <span>{m.badge}</span>
             </button>
           )
@@ -93,8 +93,8 @@ export default function KitchenMastersAtelier() {
               onMouseEnter={() => setActiveId(master.id)}
               className={`group relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-[flex,transform] select-none ${
                 isActive
-                  ? 'lg:flex-[2.6] min-h-[460px] lg:min-h-0 border-2 border-[#E5B869]/80 shadow-[0_25px_60px_-10px_rgba(0,0,0,0.9),0_0_30px_rgba(229,184,105,0.25)]'
-                  : 'lg:flex-[1] min-h-[140px] lg:min-h-0 border border-[#B8894B]/25 hover:border-[#E5B869]/50 opacity-90 hover:opacity-100 shadow-xl'
+                  ? 'lg:flex-[2.6] min-h-[460px] lg:min-h-0 border-2 border-[var(--primary)] shadow-[0_25px_60px_-10px_rgba(28,43,34,0.35),0_0_30px_rgba(126,156,122,0.2)]'
+                  : 'lg:flex-[1] min-h-[140px] lg:min-h-0 border border-[var(--border)] hover:border-[var(--primary)]/50 opacity-90 hover:opacity-100 shadow-xl'
               }`}
             >
               {/* Background Full-Bleed Portrait Photo */}
@@ -102,41 +102,31 @@ export default function KitchenMastersAtelier() {
                 src={master.image}
                 alt={master.name}
                 className={`absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out ${
-                  isActive
-                    ? 'scale-105 brightness-[0.88] contrast-[1.08]'
-                    : 'scale-100 grayscale-[0.35] brightness-[0.6] group-hover:grayscale-0 group-hover:scale-108 group-hover:brightness-[0.75]'
+                  isActive ? 'scale-105' : 'scale-100 group-hover:scale-105'
                 }`}
               />
 
-              {/* Multi-Layer Cinematic Obsidian Vignettes */}
+              {/* Gentle Bottom Scrim for Text Readability Only (No Top or Side Vignettes) */}
               <div
-                className={`absolute inset-0 transition-opacity duration-700 ${
+                className={`absolute bottom-0 inset-x-0 h-[55%] transition-opacity duration-700 pointer-events-none ${
                   isActive
-                    ? 'bg-gradient-to-t from-[#100A08] via-[#100A08]/55 to-transparent'
-                    : 'bg-gradient-to-t from-[#100A08] via-[#100A08]/75 to-[#100A08]/40'
+                    ? 'bg-gradient-to-t from-[#1C2B22]/85 via-[#1C2B22]/35 to-transparent'
+                    : 'bg-gradient-to-t from-[#1C2B22]/60 via-transparent to-transparent'
                 }`}
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#100A08]/70 via-transparent to-black/60 pointer-events-none" />
 
-              {/* Top Hairline Metallic Accent */}
+              {/* Top Hairline Accent */}
               <div
                 className={`absolute top-0 left-0 right-0 h-[2px] transition-opacity duration-500 ${
                   isActive
-                    ? 'bg-gradient-to-r from-transparent via-[#E5B869] to-transparent opacity-100'
+                    ? 'bg-gradient-to-r from-transparent via-[var(--primary)] to-transparent opacity-100'
                     : 'bg-transparent opacity-0'
                 }`}
               />
 
-              {/* Top Badges Row */}
-              <div className="absolute top-5 left-5 right-5 flex items-center justify-between z-20">
-                {/* Station Tag */}
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#130D0B]/85 backdrop-blur-md border border-[#E5B869]/40 text-[#E5B869] text-[10px] font-mono uppercase tracking-widest shadow-lg">
-                  <IconComp className="w-3 h-3 text-[#E5B869]" />
-                  <span>{master.badge}</span>
-                </div>
-
-                {/* Experience Chip */}
-                <div className="font-mono text-[10px] uppercase tracking-wider text-[#F5E9D4]/80 px-2.5 py-1 rounded-full bg-[#1F1410]/80 border border-[#B8894B]/30 backdrop-blur-md">
+              {/* Top Experience Chip */}
+              <div className="absolute top-5 right-5 z-20">
+                <div className="font-mono text-[10px] uppercase tracking-wider text-[var(--bg)]/90 px-2.5 py-1 rounded-full bg-[#1C2B22]/80 border border-[var(--border)]/40 backdrop-blur-md">
                   {master.experience}
                 </div>
               </div>
@@ -148,16 +138,16 @@ export default function KitchenMastersAtelier() {
                 }`}
               >
                 <div className="flex flex-col items-center justify-between h-full py-16">
-                  <div className="w-8 h-8 rounded-full border border-[#E5B869]/40 bg-[#140D0B]/80 flex items-center justify-center text-[#E5B869]">
+                  <div className="w-8 h-8 rounded-full border border-[var(--primary)]/40 bg-[#1C2B22]/80 flex items-center justify-center text-[var(--primary)]">
                     <IconComp className="w-4 h-4" />
                   </div>
                   
                   {/* Rotated Name Title */}
-                  <span className="font-display italic text-2xl text-[#F5E9D4] tracking-wide -rotate-90 whitespace-nowrap drop-shadow-md">
+                  <span className="font-display italic text-2xl text-[var(--bg)] tracking-wide -rotate-90 whitespace-nowrap drop-shadow-md">
                     {master.name}
                   </span>
 
-                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#E5B869] -rotate-90 whitespace-nowrap">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--accent)] -rotate-90 whitespace-nowrap">
                     {master.origin}
                   </span>
                 </div>
@@ -173,39 +163,39 @@ export default function KitchenMastersAtelier() {
               >
                 <div className="space-y-4 max-w-xl">
                   {/* Origin & Station Coordinates */}
-                  <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono text-[#E5B869]">
-                    <div className="flex items-center gap-1 bg-[#1A110D]/80 px-2.5 py-1 rounded-md border border-[#B8894B]/30">
-                      <MapPin className="w-3 h-3 text-[#E5B869]" />
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono text-[var(--accent)]">
+                    <div className="flex items-center gap-1 bg-[#1C2B22]/80 px-2.5 py-1 rounded-md border border-[var(--border)]/30">
+                      <MapPin className="w-3 h-3 text-[var(--accent)]" />
                       <span>{master.origin}</span>
                     </div>
-                    <span className="text-[#B8894B]/60">·</span>
-                    <span className="text-[#F5E9D4]/80">{master.station}</span>
+                    <span className="text-[var(--border)]">·</span>
+                    <span className="text-[var(--bg)]/90">{master.station}</span>
                   </div>
 
                   {/* Master Name & Role */}
                   <div>
-                    <h3 className="font-display text-3xl sm:text-4xl text-[#F5E9D4] leading-tight drop-shadow-lg">
+                    <h3 className="font-display text-3xl sm:text-4xl text-[var(--bg)] leading-tight drop-shadow-lg">
                       {master.name}
                     </h3>
-                    <p className="font-mono text-xs sm:text-sm text-[#E5B869]/90 mt-1 uppercase tracking-wider">
+                    <p className="font-mono text-xs sm:text-sm text-[var(--accent)] mt-1 uppercase tracking-wider">
                       {master.role}
                     </p>
                   </div>
 
                   {/* Personal Quote */}
-                  <div className="relative pl-4 border-l-2 border-[#E5B869] py-1 bg-[#1A110D]/40 backdrop-blur-sm rounded-r-lg">
-                    <p className="font-display italic text-sm sm:text-base text-[#F5E9D4]/90 leading-relaxed">
+                  <div className="relative pl-4 border-l-2 border-[var(--accent)] py-1 bg-[#1C2B22]/40 backdrop-blur-sm rounded-r-lg">
+                    <p className="font-display italic text-sm sm:text-base text-[var(--bg)]/90 leading-relaxed">
                       "{master.quote}"
                     </p>
                   </div>
 
                   {/* Signature Dish Pill */}
                   <div className="pt-2 flex flex-wrap items-center gap-2">
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-[#B8894B]">
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--border)]">
                       Signature Dish:
                     </span>
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-body font-medium bg-[#E5B869]/15 border border-[#E5B869]/40 text-[#F5E9D4]">
-                      <Utensils className="w-3 h-3 text-[#E5B869]" />
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-body font-medium bg-[var(--accent)]/15 border border-[var(--accent)]/40 text-[var(--bg)]">
+                      <Utensils className="w-3 h-3 text-[var(--accent)]" />
                       {master.signature}
                     </span>
                   </div>

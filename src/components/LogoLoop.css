@@ -129,7 +129,7 @@
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0.02em;
-  color: #EAD6B4;
+  color: var(--text-muted);
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
@@ -137,10 +137,10 @@
 }
 
 .logoloop__label::after {
-  content: '◆';
-  color: #E8A317;
-  font-size: 0.65rem;
-  opacity: 0.75;
+  content: '·';
+  color: var(--text-muted);
+  font-size: 1rem;
+  opacity: 0.5;
 }
 
 

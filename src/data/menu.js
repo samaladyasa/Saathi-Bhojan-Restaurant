@@ -6,14 +6,14 @@
  */
 
 export const CUISINES = [
-  { id: 'all', label: 'All Offerings', subtitle: 'Global & Regional', icon: 'Sparkles' },
+  { id: 'all', label: 'All Offerings', subtitle: 'Global & Regional', icon: 'Utensils' },
   { id: 'pan-asian', label: 'Pan-Asian & Woks', subtitle: 'Dim Sums & Noodles', icon: 'Soup' },
   { id: 'italian', label: 'Italian & Wood-Fired', subtitle: 'Artisan Pizzas & Pastas', icon: 'Pizza' },
   { id: 'tandoor', label: 'Tandoor & BBQ', subtitle: 'Charcoal Kebabs', icon: 'CookingPot' },
   { id: 'north-indian', label: 'North Indian & Mughlai', subtitle: 'Rich Curries & Biryani', icon: 'Flame' },
   { id: 'continental', label: 'Continental & Grills', subtitle: 'Steaks & Gourmet Burgers', icon: 'UtensilsCrossed' },
   { id: 'south-indian', label: 'South Indian Tiffins', subtitle: 'Ghee Dosas & Roasts', icon: 'Coffee' },
-  { id: 'coastal', label: 'Coastal Seafood', subtitle: 'Fresh Catch & Malabar Curries', icon: 'Sparkles' },
+  { id: 'coastal', label: 'Coastal Seafood', subtitle: 'Fresh Catch & Malabar Curries', icon: 'Fish' },
   { id: 'desserts', label: 'Desserts & Beverages', subtitle: 'Dolci, Shakes & Chaa', icon: 'Heart' },
 ]
 

@@ -9,7 +9,6 @@ import {
   Flame,
   Star,
   Users,
-  Sparkles,
   HeartHandshake,
   ChevronRight,
   ChevronLeft,
@@ -32,6 +31,7 @@ import PinnedDishesShowcase from '../components/PinnedDishesShowcase'
 import LogoLoop from '../components/LogoLoop'
 import HeroFood3DCarousel from '../components/HeroFood3DCarousel'
 import TestimonialsCarousel from '../components/TestimonialsCarousel'
+import CurveDivider from '../components/CurveDivider'
 import { SITE_CONFIG } from '../data/site'
 import { MENU_ITEMS } from '../data/menu'
 
@@ -41,100 +41,100 @@ const CUISINE_LOGOS = [
   {
     title: 'Wood-Fired Neapolitan',
     href: '/menu',
-    hoverColor: '#E5B869',
+    hoverColor: '#7E9C7A',
     node: (
-      <div className="w-12 h-12 rounded-full bg-[#1E1410] border border-[#B8894B]/40 hover:border-[#E5B869] flex items-center justify-center text-[#E5B869] shadow-md shadow-black/50 transition-all hover:bg-[#281A14] hover:scale-105">
-        <Pizza className="w-6 h-6 text-[#E5B869]" />
+      <div className="w-12 h-12 rounded-full bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--primary)] flex items-center justify-center text-[var(--primary-dark)] shadow-sm transition-all hover:bg-[var(--bg)] hover:scale-105">
+        <Pizza className="w-6 h-6 text-[var(--primary-dark)]" />
       </div>
     ),
   },
   {
     title: 'Pan-Asian Wok & Dim Sum',
     href: '/menu',
-    hoverColor: '#D97706',
+    hoverColor: '#2F4A3A',
     node: (
-      <div className="w-12 h-12 rounded-full bg-[#1E1410] border border-[#B8894B]/40 hover:border-[#E5B869] flex items-center justify-center text-[#E28743] shadow-md shadow-black/50 transition-all hover:bg-[#281A14] hover:scale-105">
-        <Soup className="w-6 h-6 text-[#E28743]" />
+      <div className="w-12 h-12 rounded-full bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--primary)] flex items-center justify-center text-[var(--primary-dark)] shadow-sm transition-all hover:bg-[var(--bg)] hover:scale-105">
+        <Soup className="w-6 h-6 text-[var(--primary-dark)]" />
       </div>
     ),
   },
   {
     title: 'Awadhi & Lucknowi Dum',
     href: '/menu',
-    hoverColor: '#F59E0B',
+    hoverColor: '#E0A030',
     node: (
-      <div className="w-12 h-12 rounded-full bg-[#1E1410] border border-[#B8894B]/40 hover:border-[#E5B869] flex items-center justify-center text-[#FBBF24] shadow-md shadow-black/50 transition-all hover:bg-[#281A14] hover:scale-105">
-        <Crown className="w-6 h-6 text-[#FBBF24]" />
+      <div className="w-12 h-12 rounded-full bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--primary)] flex items-center justify-center text-[var(--accent)] shadow-sm transition-all hover:bg-[var(--bg)] hover:scale-105">
+        <Crown className="w-6 h-6 text-[var(--accent)]" />
       </div>
     ),
   },
   {
     title: 'Acacia Charcoal Tandoor',
     href: '/menu',
-    hoverColor: '#EA580C',
+    hoverColor: '#7E9C7A',
     node: (
-      <div className="w-12 h-12 rounded-full bg-[#1E1410] border border-[#B8894B]/40 hover:border-[#E5B869] flex items-center justify-center text-[#EA580C] shadow-md shadow-black/50 transition-all hover:bg-[#281A14] hover:scale-105">
-        <Flame className="w-6 h-6 text-[#EA580C]" />
+      <div className="w-12 h-12 rounded-full bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--primary)] flex items-center justify-center text-[var(--primary-dark)] shadow-sm transition-all hover:bg-[var(--bg)] hover:scale-105">
+        <Flame className="w-6 h-6 text-[var(--primary-dark)]" />
       </div>
     ),
   },
   {
     title: 'South Indian Ghee Tiffins',
     href: '/menu',
-    hoverColor: '#D97706',
+    hoverColor: '#E0A030',
     node: (
-      <div className="w-12 h-12 rounded-full bg-[#1E1410] border border-[#B8894B]/40 hover:border-[#E5B869] flex items-center justify-center text-[#D97706] shadow-md shadow-black/50 transition-all hover:bg-[#281A14] hover:scale-105">
-        <Coffee className="w-6 h-6 text-[#D97706]" />
+      <div className="w-12 h-12 rounded-full bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--primary)] flex items-center justify-center text-[var(--accent)] shadow-sm transition-all hover:bg-[var(--bg)] hover:scale-105">
+        <Coffee className="w-6 h-6 text-[var(--accent)]" />
       </div>
     ),
   },
   {
     title: 'Coastal Malabar Seafood',
     href: '/menu',
-    hoverColor: '#38BDF8',
+    hoverColor: '#7E9C7A',
     node: (
-      <div className="w-12 h-12 rounded-full bg-[#1E1410] border border-[#B8894B]/40 hover:border-[#E5B869] flex items-center justify-center text-[#38BDF8] shadow-md shadow-black/50 transition-all hover:bg-[#281A14] hover:scale-105">
-        <Fish className="w-6 h-6 text-[#38BDF8]" />
+      <div className="w-12 h-12 rounded-full bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--primary)] flex items-center justify-center text-[var(--primary-dark)] shadow-sm transition-all hover:bg-[var(--bg)] hover:scale-105">
+        <Fish className="w-6 h-6 text-[var(--primary-dark)]" />
       </div>
     ),
   },
   {
     title: 'Continental Herb Steaks',
     href: '/menu',
-    hoverColor: '#EAD6B4',
+    hoverColor: '#2F4A3A',
     node: (
-      <div className="w-12 h-12 rounded-full bg-[#1E1410] border border-[#B8894B]/40 hover:border-[#E5B869] flex items-center justify-center text-[#EAD6B4] shadow-md shadow-black/50 transition-all hover:bg-[#281A14] hover:scale-105">
-        <UtensilsCrossed className="w-6 h-6 text-[#EAD6B4]" />
+      <div className="w-12 h-12 rounded-full bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--primary)] flex items-center justify-center text-[var(--primary-dark)] shadow-sm transition-all hover:bg-[var(--bg)] hover:scale-105">
+        <UtensilsCrossed className="w-6 h-6 text-[var(--primary-dark)]" />
       </div>
     ),
   },
   {
     title: 'Pure Vegetarian Rasoi',
     href: '/menu',
-    hoverColor: '#34D399',
+    hoverColor: '#7E9C7A',
     node: (
-      <div className="w-12 h-12 rounded-full bg-[#1E1410] border border-[#B8894B]/40 hover:border-[#E5B869] flex items-center justify-center text-[#34D399] shadow-md shadow-black/50 transition-all hover:bg-[#281A14] hover:scale-105">
-        <Salad className="w-6 h-6 text-[#34D399]" />
+      <div className="w-12 h-12 rounded-full bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--primary)] flex items-center justify-center text-[var(--primary)] shadow-sm transition-all hover:bg-[var(--bg)] hover:scale-105">
+        <Salad className="w-6 h-6 text-[var(--primary)]" />
       </div>
     ),
   },
   {
     title: 'Slow Handi Simmered Curries',
     href: '/menu',
-    hoverColor: '#F59E0B',
+    hoverColor: '#E0A030',
     node: (
-      <div className="w-12 h-12 rounded-full bg-[#1E1410] border border-[#B8894B]/40 hover:border-[#E5B869] flex items-center justify-center text-[#F59E0B] shadow-md shadow-black/50 transition-all hover:bg-[#281A14] hover:scale-105">
-        <CookingPot className="w-6 h-6 text-[#F59E0B]" />
+      <div className="w-12 h-12 rounded-full bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--primary)] flex items-center justify-center text-[var(--accent)] shadow-sm transition-all hover:bg-[var(--bg)] hover:scale-105">
+        <CookingPot className="w-6 h-6 text-[var(--accent)]" />
       </div>
     ),
   },
   {
     title: 'Artisanal Dolci & Gelato',
     href: '/menu',
-    hoverColor: '#C084FC',
+    hoverColor: '#2F4A3A',
     node: (
-      <div className="w-12 h-12 rounded-full bg-[#1E1410] border border-[#B8894B]/40 hover:border-[#E5B869] flex items-center justify-center text-[#C084FC] shadow-md shadow-black/50 transition-all hover:bg-[#281A14] hover:scale-105">
-        <Cake className="w-6 h-6 text-[#C084FC]" />
+      <div className="w-12 h-12 rounded-full bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--primary)] flex items-center justify-center text-[var(--primary-dark)] shadow-sm transition-all hover:bg-[var(--bg)] hover:scale-105">
+        <Cake className="w-6 h-6 text-[var(--primary-dark)]" />
       </div>
     ),
   },
@@ -170,45 +170,45 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="relative overflow-hidden bg-[#130D0B] text-[#F5E9D4]">
-      {/* 1. HERO SECTION */}
-      <section ref={heroRef} className="relative min-h-[92vh] sm:min-h-screen flex flex-col justify-between pt-28 pb-16 px-6 sm:px-10 overflow-hidden">
-        {/* Soft Candlelit Ambient Glow (Refined & Subtle) */}
-        <div className="absolute top-10 left-1/4 w-[650px] h-[550px] rounded-full bg-gradient-to-br from-amber-600/10 via-[#B8894B]/5 to-transparent blur-[140px] pointer-events-none" />
+    <div className="relative overflow-hidden bg-[var(--bg)] text-[var(--text)]">
+      {/* 1. HERO SECTION (--bg) */}
+      <section ref={heroRef} className="relative min-h-[92vh] sm:min-h-screen flex flex-col justify-between pt-28 pb-16 px-6 sm:px-10 overflow-hidden bg-[var(--bg)]">
+        {/* Soft Ambient Hearth Glow */}
+        <div className="absolute top-10 left-1/4 w-[650px] h-[550px] rounded-full bg-gradient-to-br from-[var(--primary)]/15 via-[var(--bg-alt)]/25 to-transparent blur-[140px] pointer-events-none" />
 
-        {/* Ambient Embers with Cursor Repulsion */}
+        {/* Ambient Embers */}
         <Embers count={28} />
 
-        {/* Latin Luxury Watermark */}
-        <div className="watermark-text text-[18vw] top-1/4 left-1/2 -translate-x-1/2 text-[#B8894B]/10">
+        {/* Watermark */}
+        <div className="watermark-text text-[18vw] top-1/4 left-1/2 -translate-x-1/2 text-[var(--primary)]/[0.07]">
           SAATHI
         </div>
 
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center my-auto z-10">
           {/* Left Column: Editorial Headline & Subcopy */}
           <div className="lg:col-span-7 space-y-6 text-left">
-            <div className="hero-anim inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#B8894B]/35 bg-[#20140F]/85 backdrop-blur-md shadow-md shadow-black/40">
-              <span className="w-2 h-2 rounded-full bg-[#E5B869] animate-pulse" />
-              <span className="font-mono text-xs uppercase tracking-widest text-[#EAD6B4] font-medium">
+            <div className="hero-anim inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--border)] bg-[var(--surface)]/90 backdrop-blur-md shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-[var(--primary)] animate-pulse" />
+              <span className="font-mono text-xs uppercase tracking-widest text-[var(--primary-dark)] font-medium">
                 Multi-Cuisine Dining Destination
               </span>
             </div>
 
-            <h1 className="hero-anim font-display text-4xl sm:text-6xl md:text-7xl lg:text-7xl tracking-tight leading-[1.08] text-[#F5E9D4]">
+            <h1 className="hero-anim font-display text-4xl sm:text-6xl md:text-7xl lg:text-7xl tracking-tight leading-[1.08] text-[var(--primary-dark)]">
               Where every{' '}
-              <span className="italic font-normal text-[#E5B869]">
+              <span className="italic font-normal text-[var(--primary)]">
                 companion
               </span>{' '}
               finds their favorite cuisine.
             </h1>
 
-            <p className="hero-anim font-body text-base sm:text-xl text-[#F5E9D4]/80 max-w-xl leading-relaxed">
+            <p className="hero-anim font-body text-base sm:text-xl text-[var(--text)] max-w-xl leading-relaxed">
               From artisan wood-fired Neapolitan pizzas and fiery Sichuan wok noodles to royal Lucknowi dum biryanis, acacia-charred kebabs, and crisp golden dosas. One joyous table, zero compromises.
             </p>
 
             <div className="hero-anim flex flex-wrap items-center gap-4 pt-3">
               <Button to="/reserve" variant="ember" cursorLabel="Reserve">
-                <Utensils className="w-4 h-4 text-[#F5E9D4]" />
+                <Utensils className="w-4 h-4 text-[#1C2B22]" />
                 <span>Save Your Table</span>
               </Button>
               <Button to="/menu" variant="brass" cursorLabel="Explore">
@@ -217,7 +217,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right Column: Frameless 3D Sliding Food Carousel (No Card Box) */}
+          {/* Right Column: Frameless 3D Sliding Food Carousel */}
           <div className="lg:col-span-5 relative flex justify-center items-center hero-anim">
             <HeroFood3DCarousel />
           </div>
@@ -225,8 +225,8 @@ export default function Home() {
 
       </section>
 
-      {/* 2. CUISINE LOGO LOOP MARQUEE (Refined Luxury Bronze & Gold Medallions) */}
-      <section className="bg-[#19110D] py-5 border-y border-[#B8894B]/20 overflow-hidden relative select-none">
+      {/* 2. CUISINE LOGO LOOP MARQUEE (--bg-alt) */}
+      <section className="bg-[var(--bg-alt)] py-5 border-y border-[var(--border)] overflow-hidden relative select-none">
         <LogoLoop
           logos={CUISINE_LOGOS}
           speed={55}
@@ -244,8 +244,8 @@ export default function Home() {
         />
       </section>
 
-      {/* 3. MANIFESTO SECTION (Scroll Scrub Word-by-Word Reveal) */}
-      <section className="py-24 px-6 sm:px-12 bg-[#1B100C] relative">
+      {/* 3. MANIFESTO SECTION (--bg) */}
+      <section className="py-24 px-6 sm:px-12 bg-[var(--bg)] relative">
         <div className="max-w-4xl mx-auto text-center space-y-6 relative z-10">
           <SectionHeading
             eyebrow="The Dining Manifesto"
@@ -267,22 +267,40 @@ export default function Home() {
 
       </section>
 
-      {/* 4. PINNED SIGNATURE DISHES SHOWCASE (ScrollTrigger Pin + Scrub) */}
+      {/* CURVED SECTION DIVIDER: Manifesto (--bg) to Pinned Dishes (--bg-alt) */}
+      <CurveDivider
+        variant="wave"
+        fromColor="var(--bg-alt)"
+        toColor="var(--bg)"
+        height={96}
+        className="-mt-1 relative z-10"
+      />
+
+      {/* 4. PINNED SIGNATURE DISHES SHOWCASE (--bg-alt) */}
       <PinnedDishesShowcase
         dishes={signatureDishes}
         onSelectDish={setActiveDish}
       />
 
-      {/* 5. EXPERIENCE PILLARS (Refined Luxury Obsidian & Bronze Plaques) */}
-      <section className="py-24 px-6 sm:px-10 bg-[#130D0B] relative">
+      {/* CURVED SECTION DIVIDER: Pinned Dishes (--bg-alt) to Experience Pillars (--bg) */}
+      <CurveDivider
+        variant="convex"
+        fromColor="var(--bg)"
+        toColor="var(--bg-alt)"
+        height={96}
+        className="-mt-1 relative z-10"
+      />
+
+      {/* 5. EXPERIENCE PILLARS (--bg) */}
+      <section className="pt-10 sm:pt-14 pb-24 px-6 sm:px-10 bg-[var(--bg)] relative">
         <div className="max-w-7xl mx-auto">
           <SectionHeading
-            eyebrow="Our Sacred Pillars"
+            eyebrow="Our Sacred Standards"
             titlePart1="The Standards of"
             italicPart="Saathi"
             titlePart2="Dining"
             subtitle="Four guiding standards honored every day across our specialty kitchen stations."
-            watermark="PILLARS"
+            watermark="STANDARDS"
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
@@ -290,16 +308,20 @@ export default function Home() {
               <TiltCard
                 key={pillar.id}
                 maxTilt={8}
-                className="group relative bg-[#1E1410] border border-[#B8894B]/30 hover:border-[#E5B869] rounded-2xl p-7 transition-all duration-300 hover:shadow-2xl hover:shadow-[#B8894B]/10"
+                className="group relative bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--primary)] rounded-2xl p-7 transition-all duration-300 hover:shadow-xl hover:shadow-[var(--footer)]/10 hover:-translate-y-1 overflow-hidden"
               >
-                <div className="font-mono text-xs text-[#E5B869] mb-4 flex items-center justify-between">
-                  <span>PILLAR {pillar.num}</span>
-                  <span className="text-[#E5B869]">◆</span>
+                {/* Top Glowing Shimmer Line */}
+                <div className="absolute top-0 inset-x-4 h-[2px] bg-gradient-to-r from-transparent via-[var(--primary)]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                <div className="mb-4 flex items-center justify-between">
+                  <span className="px-2.5 py-0.5 rounded-full font-mono text-[10px] font-bold bg-[var(--bg-alt)] text-[var(--primary-dark)] group-hover:bg-[var(--accent)] group-hover:text-[#1C2B22] transition-colors duration-300">
+                    {pillar.num}
+                  </span>
                 </div>
-                <h3 className="font-display text-xl text-[#F5E9D4] group-hover:text-[#E5B869] transition-colors mb-2">
+                <h3 className="font-display text-xl text-[var(--primary-dark)] group-hover:text-[var(--primary)] transition-colors mb-2">
                   {pillar.title}
                 </h3>
-                <p className="font-body text-xs sm:text-sm text-[#F5E9D4]/75 leading-relaxed">
+                <p className="font-body text-xs sm:text-sm text-[var(--text)] leading-relaxed">
                   {pillar.description}
                 </p>
               </TiltCard>
@@ -308,8 +330,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. TESTIMONIALS AUTO-SLIDING CAROUSEL (Intimate Midnight Mahogany & Gold) */}
-      <section className="py-20 px-6 sm:px-10 bg-[#18100C] border-t border-[#B8894B]/20 relative overflow-hidden">
+      {/* CURVED SECTION DIVIDER: Experience Pillars (--bg) to Testimonials (--bg-alt) */}
+      <CurveDivider
+        variant="wave"
+        mirror={true}
+        fromColor="var(--bg-alt)"
+        toColor="var(--bg)"
+        height={96}
+        className="-mt-1 relative z-10"
+      />
+
+      {/* 6. TESTIMONIALS AUTO-SLIDING CAROUSEL (--bg-alt) */}
+      <section className="pt-8 sm:pt-12 pb-20 px-6 sm:px-10 bg-[var(--bg-alt)] relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <SectionHeading
             eyebrow="Echoes from the Table"
@@ -324,21 +356,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. RESERVATION CTA BAND (Deep Royal Botanical Forest Velvet & Warm Gold) */}
-      <section className="relative py-20 px-6 sm:px-10 bg-gradient-to-r from-[#0C2419] via-[#123324] to-[#0E281C] text-[#F5E9D4] overflow-hidden border-t border-[#1D4A34]">
-        {/* Floating Embers in Forest Night */}
+      {/* CURVED SECTION DIVIDER: Testimonials (--bg-alt) to Reservation CTA (--footer) */}
+      <CurveDivider
+        variant="curve"
+        fromColor="var(--footer)"
+        toColor="var(--bg-alt)"
+        height={96}
+        className="-mt-1 relative z-10"
+      />
+
+      {/* 7. RESERVATION CTA BAND (--footer) */}
+      <section className="relative pt-12 pb-20 px-6 sm:px-10 bg-[var(--footer)] text-[var(--bg)] overflow-hidden">
+        {/* Floating Embers in Midnight Green Night */}
         <Embers count={24} />
 
         <div className="max-w-4xl mx-auto text-center space-y-6 relative z-10">
-          <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-[#E5B869] bg-[#0A1D14]/80 px-4 py-1.5 rounded-full border border-[#1D4A34]">
-            <span>✦ ATITHI DEVO BHAVA ✦</span>
+          <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-[var(--accent)] bg-[#24352B] px-4 py-1.5 rounded-full border border-[var(--primary-dark)]">
+            <span>ATITHI DEVO BHAVA</span>
           </div>
 
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-[#F5E9D4] tracking-tight">
-            Bring your <span className="italic text-[#E5B869]">companions</span>. We have saved a seat.
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-[var(--bg)] tracking-tight">
+            Bring your <span className="italic text-[var(--accent)]">companions</span>. We have saved a seat.
           </h2>
 
-          <p className="font-body text-base sm:text-lg text-[#F5E9D4]/80 max-w-xl mx-auto leading-relaxed">
+          <p className="font-body text-base sm:text-lg text-[var(--bg)]/85 max-w-xl mx-auto leading-relaxed">
             Whether a joyful anniversary, weekend family celebration, or an intimate dinner with world-class cuisines, our hearth is ready.
           </p>
 
@@ -346,16 +387,16 @@ export default function Home() {
             <Button
               to="/reserve"
               variant="ember"
-              className="!bg-[#E5B869] !text-[#130D0B] !font-bold hover:!bg-[#F5E9D4] !shadow-xl !shadow-black/50"
+              className="!bg-[var(--accent)] !text-[#1C2B22] !font-bold hover:!bg-[var(--bg)] !shadow-xl !shadow-black/25"
               cursorLabel="Reserve"
             >
-              <Utensils className="w-4 h-4 text-[#130D0B]" />
+              <Utensils className="w-4 h-4 text-[#1C2B22]" />
               <span>Reserve Table Online</span>
             </Button>
             <Button
               href={SITE_CONFIG.socials.whatsapp}
               variant="brass"
-              className="!border-[#E5B869]/50 !text-[#F5E9D4] hover:!bg-[#E5B869]/15 !transition-all"
+              className="!border-[var(--border)]/60 !text-[var(--bg)] hover:!bg-[var(--primary-dark)] hover:!text-[var(--bg)] !transition-all"
               cursorLabel="WhatsApp"
             >
               <span>Instant WhatsApp Booking</span>

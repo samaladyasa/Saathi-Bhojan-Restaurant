@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import logoImg from '../assets/logo.png'
 
 export default function Preloader({ onComplete }) {
   const [progress, setProgress] = useState(0)
@@ -47,14 +48,14 @@ export default function Preloader({ onComplete }) {
     >
       {/* Left Heritage Door Panel */}
       <div
-        className={`w-1/2 h-full bg-[#1B100C] border-r border-[#B8894B]/30 transition-transform duration-800 ease-[cubic-bezier(0.76,0,0.24,1)] ${
+        className={`w-1/2 h-full bg-[var(--bg)] border-r border-[var(--border)] transition-transform duration-800 ease-[cubic-bezier(0.76,0,0.24,1)] ${
           isDone ? '-translate-x-full' : 'translate-x-0'
         }`}
       />
 
       {/* Right Heritage Door Panel */}
       <div
-        className={`w-1/2 h-full bg-[#1B100C] border-l border-[#B8894B]/30 transition-transform duration-800 ease-[cubic-bezier(0.76,0,0.24,1)] ${
+        className={`w-1/2 h-full bg-[var(--bg)] border-l border-[var(--border)] transition-transform duration-800 ease-[cubic-bezier(0.76,0,0.24,1)] ${
           isDone ? 'translate-x-full' : 'translate-x-0'
         }`}
       />
@@ -65,47 +66,24 @@ export default function Preloader({ onComplete }) {
           isDone ? 'scale-90 opacity-0' : 'scale-100 opacity-100'
         }`}
       >
-        {/* Animated Diya Lamp SVG */}
-        <div className="relative w-20 h-20 mb-6">
-          <svg viewBox="0 0 100 100" className="w-full h-full stroke-[#B8894B] fill-none stroke-[2.5]">
-            {/* Lamp base */}
-            <path
-              d="M20,65 Q50,90 80,65 L75,55 Q50,60 25,55 Z"
-              className="transition-all duration-700"
-              style={{ strokeDasharray: 200, strokeDashoffset: Math.max(0, 200 - progress * 2) }}
-            />
-            {/* Stand */}
-            <path
-              d="M50,75 L50,92 M35,92 L65,92"
-              style={{ strokeDasharray: 60, strokeDashoffset: Math.max(0, 60 - progress * 0.6) }}
-            />
-            {/* Sacred Flame */}
-            <path
-              d="M50,22 Q62,40 50,55 Q38,40 50,22 Z"
-              fill={progress > 60 ? '#C4532B' : 'transparent'}
-              stroke={progress > 40 ? '#E8A317' : 'transparent'}
-              className="animate-pulse"
-              style={{
-                filter: 'drop-shadow(0 0 12px #E8A317)',
-                transition: 'fill 0.5s ease',
-              }}
-            />
-          </svg>
+        {/* Brand Official Logo */}
+        <div className="relative w-28 h-28 sm:w-32 sm:h-32 mb-4">
+          <img
+            src={logoImg}
+            alt="Saathi Bhojan"
+            className="w-full h-full object-contain mix-blend-multiply transition-transform duration-500"
+            style={{
+              transform: `scale(${0.92 + (progress / 100) * 0.08})`,
+            }}
+          />
         </div>
 
-        {/* Wordmark with Italic Fraunces + Roman Bhojan */}
-        <div className="flex items-center gap-3 text-2xl md:text-3xl tracking-tight text-[#F5E9D4] font-display mb-3">
-          <span className="italic text-[#EAD6B4]">Saathi</span>
-          <span className="text-[#B8894B] text-sm">◆</span>
-          <span className="font-normal">Bhojan</span>
-        </div>
-
-        <p className="text-xs uppercase font-mono tracking-[0.25em] text-[#B8894B] mb-8">
+        <p className="text-xs uppercase font-mono tracking-[0.25em] text-[var(--text-muted)] mb-8">
           Every Flavour Has A Seat
         </p>
 
         {/* Counter */}
-        <div className="font-mono text-sm tracking-widest text-[#E8A317] flex items-center gap-2">
+        <div className="font-mono text-sm tracking-widest text-[var(--accent)] flex items-center gap-2">
           <span className="w-8 text-right font-medium">{progress}</span>
           <span className="text-xs opacity-60">%</span>
         </div>

@@ -1,14 +1,14 @@
 # Saathi Bhojan — Every Flavour Has a Seat
 ### Premier Multi-Cuisine Family & Companion Dining Restaurant Website
 
-An award-caliber, story-led restaurant website built with React, Vite, Tailwind CSS v4, GSAP, and Lenis smooth scrolling. Designed around the concept of **"Ember & Clay"** — celebrating warmth, hospitality, and a feast where companions never have to compromise on what they crave.
+An award-caliber, story-led restaurant website built with React, Vite, Tailwind CSS v4, GSAP, and Lenis smooth scrolling. Designed around the concept of **"Sage Garden"** — celebrating warmth, hospitality, and a feast where companions never have to compromise on what they crave.
 
 ---
 
 ## 🌟 Architecture & Key Features
 
-- **"Ember & Clay" Aesthetic System:**
-  - Terracotta clay dark backgrounds (`#1B100C`), raised cards (`#2A1812`), warm unbleached linen (`#F5E9D4`), golden brass ornaments (`#B8894B`), and sal forest moss green (`#2E4A38`).
+- **"Sage Garden" Aesthetic System:**
+  - Warm ivory background (`#F6F4EC`), pale sage section alternation (`#E4EAD8`), clean card surfaces (`#FDFCF8`), sage green primary accents (`#7E9C7A`), deep forest headings (`#2F4A3A`), midnight green footer (`#1C2B22`), and saffron highlights (`#E0A030`).
   - Organic `<CurveDivider />` seams preventing straight horizontal lines across sections.
   - Ambient floating ember sparks canvas and subtle 4.5% SVG film-grain texture.
 - **Editorial Typography:**

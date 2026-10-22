@@ -74,18 +74,18 @@ export default function Cursor() {
         ref={glowRef}
         className="fixed top-0 left-0 w-[240px] h-[240px] pointer-events-none -translate-x-1/2 -translate-y-1/2 z-[990] transition-opacity duration-300 will-change-transform"
         style={{
-          background: 'radial-gradient(circle, rgba(232, 163, 23, 0.12) 0%, rgba(196, 83, 43, 0.04) 40%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(126, 156, 122, 0.15) 0%, rgba(47, 74, 58, 0.05) 40%, transparent 70%)',
           opacity: 0.8,
         }}
         aria-hidden="true"
       />
 
-      {/* Central Gold Dot */}
+      {/* Central Sage Dot */}
       <div
         ref={dotRef}
-        className="fixed top-0 left-0 w-2.5 h-2.5 bg-[#E8A317] rounded-full pointer-events-none -translate-x-1/2 -translate-y-1/2 z-[9999] transition-opacity duration-200"
+        className="fixed top-0 left-0 w-2.5 h-2.5 bg-[var(--primary)] rounded-full pointer-events-none -translate-x-1/2 -translate-y-1/2 z-[9999] transition-opacity duration-200"
         style={{
-          boxShadow: '0 0 10px rgba(232, 163, 23, 0.85)',
+          boxShadow: '0 0 10px rgba(126, 156, 122, 0.85)',
           opacity: isHovered && cursorText ? 0 : 1,
         }}
       />
@@ -98,13 +98,13 @@ export default function Cursor() {
           width: isHovered ? (cursorText ? '84px' : '48px') : '32px',
           height: isHovered ? (cursorText ? '84px' : '48px') : '32px',
           borderRadius: '50%',
-          border: '1.5px solid rgba(232, 163, 23, 0.75)',
-          backgroundColor: cursorText ? 'rgba(42, 24, 18, 0.88)' : 'rgba(232, 163, 23, 0.08)',
+          border: '1.5px solid rgba(126, 156, 122, 0.75)',
+          backgroundColor: cursorText ? 'rgba(28, 43, 34, 0.92)' : 'rgba(126, 156, 122, 0.12)',
           backdropFilter: cursorText ? 'blur(6px)' : 'none',
         }}
       >
         {cursorText && (
-          <span className="text-[10px] uppercase font-mono tracking-widest text-[#E8A317] font-medium px-2 text-center select-none">
+          <span className="text-[10px] uppercase font-mono tracking-widest text-[var(--bg)] font-medium px-2 text-center select-none">
             {cursorText}
           </span>
         )}
